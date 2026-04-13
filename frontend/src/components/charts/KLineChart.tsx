@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 import { init, dispose, CandleType, type Chart } from 'klinecharts';
+import { marketApi } from '@/lib/api/client';
 
 interface KLineChartProps {
   symbol?: string;
@@ -30,6 +31,28 @@ function generateKlineData(count: number) {
 export default function KLineChart({ symbol = 'BTC/USDT', interval = '1H' }: KLineChartProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<Chart | null>(null);
+  const [, setLoading] = useState(true);
+
+  const loadData = useCallback(async (chart: Chart) => {
+    try {
+      const resp = await marketApi.getKlines(symbol, interval, 200);
+      if (Array.isArray(resp) && resp.length > 0) {
+        const data = resp.map((k: Record<string, unknown>) => ({
+          timestamp: Number(k.timestamp) || 0,
+          open: Number(k.open) || 0,
+          high: Number(k.high) || 0,
+          low: Number(k.low) || 0,
+          close: Number(k.close) || 0,
+          volume: Number(k.volume) || 0,
+        }));
+        chart.applyNewData(data);
+        return;
+      }
+    } catch {
+      // fall through to generated data
+    }
+    chart.applyNewData(generateKlineData(200));
+  }, [symbol, interval]);
 
   const initChart = useCallback(() => {
     if (!containerRef.current) return;
@@ -74,11 +97,10 @@ export default function KLineChart({ symbol = 'BTC/USDT', interval = '1H' }: KLi
       chart.createIndicator('MA', false, { id: 'candle_pane' });
       chart.createIndicator('VOL');
 
-      // Load sample data
-      const data = generateKlineData(200);
-      chart.applyNewData(data);
+      // Load data from API or fallback
+      loadData(chart).finally(() => setLoading(false));
     }
-  }, []);
+  }, [loadData]);
 
   useEffect(() => {
     initChart();

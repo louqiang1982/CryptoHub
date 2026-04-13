@@ -1,13 +1,25 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import { dashboardApi } from '@/lib/api/client';
 
 const HOURS = Array.from({ length: 24 }, (_, i) => i);
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
-function generateHeatmapData(): number[][] {
-  return DAYS.map(() =>
-    HOURS.map(() => Math.round((Math.random() * 200 - 50) * 100) / 100)
+interface HeatmapRow {
+  day: string;
+  hours: number[];
+}
+
+function generateFallbackData(): HeatmapRow[] {
+  return DAYS.map((day, i) =>
+    ({
+      day,
+      hours: HOURS.map((h) => {
+        const v = Math.sin((i * 24 + h) * 2.7) * 100 + Math.cos(h * 1.1) * 50;
+        return Math.round(v * 100) / 100;
+      }),
+    })
   );
 }
 
@@ -21,7 +33,26 @@ function getHeatColor(value: number, max: number): string {
 }
 
 export default function TradingHoursHeatmap() {
-  const data = useMemo(() => generateHeatmapData(), []);
+  const fallback = useMemo(() => generateFallbackData(), []);
+  const [rows, setRows] = useState<HeatmapRow[]>(fallback);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const resp = await dashboardApi.getTradingHoursHeatmap('');
+        const items = resp?.data;
+        if (!cancelled && Array.isArray(items) && items.length > 0) {
+          setRows(items);
+        }
+      } catch {
+        // keep fallback data
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
+  const data = rows.map((r) => r.hours);
   const maxVal = Math.max(...data.flat());
 
   return (
@@ -36,16 +67,16 @@ export default function TradingHoursHeatmap() {
           ))}
         </div>
       </div>
-      {DAYS.map((day, di) => (
-        <div key={day} className="flex items-center">
-          <div className="w-10 text-xs text-muted-foreground">{day}</div>
+      {rows.map((row, di) => (
+        <div key={row.day} className="flex items-center">
+          <div className="w-10 text-xs text-muted-foreground">{row.day}</div>
           <div className="flex-1 grid grid-cols-24 gap-px">
             {HOURS.map((h) => (
               <div
                 key={h}
                 className="aspect-square rounded-sm cursor-pointer transition-transform hover:scale-125"
                 style={{ backgroundColor: getHeatColor(data[di][h], maxVal) }}
-                title={`${day} ${h}:00 — ${data[di][h] >= 0 ? '+' : ''}${data[di][h].toFixed(2)} USDT`}
+                title={`${row.day} ${h}:00 — ${data[di][h] >= 0 ? '+' : ''}${data[di][h].toFixed(2)} USDT`}
               />
             ))}
           </div>

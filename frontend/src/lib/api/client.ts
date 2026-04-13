@@ -96,6 +96,14 @@ export const authApi = {
 export const dashboardApi = {
   getSummary: (token: string) =>
     get<Record<string, unknown>>('/api/dashboard/summary', { token }),
+  getDrawdownCurve: (token: string) =>
+    get<{ data: { date: string; drawdown: number }[] }>('/api/v1/dashboard/charts/drawdown', { token }),
+  getProfitCalendar: (token: string) =>
+    get<{ data: { date: string; profit: number }[] }>('/api/v1/dashboard/charts/profit-calendar', { token }),
+  getStrategyDistribution: (token: string) =>
+    get<{ data: { name: string; value: number; color: string }[] }>('/api/v1/dashboard/charts/strategy-distribution', { token }),
+  getTradingHoursHeatmap: (token: string) =>
+    get<{ data: { day: string; hours: number[] }[] }>('/api/v1/dashboard/charts/trading-hours', { token }),
 };
 
 export const marketApi = {
