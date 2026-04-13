@@ -10,7 +10,7 @@
 
 | 层级 | 文件/模块数 | 已完成（有实质实现） | 仅骨架/Stub | 完全缺失 |
 |------|------------|-------------------|------------|---------|
-| 前端（Next.js） | ~42 文件 | 基础框架、i18n、主题、API请求层、WebSocket Hook、Polymarket页面、10个 shadcn/ui 组件 | 12页面（Mock数据/Placeholder图表）、认证页面（UI无session集成） | 图表组件库（lightweight-charts/klinecharts） |
+| 前端（Next.js） | ~42 文件 | 基础框架、i18n、主题、API请求层、WebSocket Hook、Polymarket页面、10个 shadcn/ui 组件 | 各页面（Mock数据/Placeholder图表）、认证页面（UI无session集成） | 图表组件库（lightweight-charts/klinecharts） |
 | Go 后端 | ~64 文件 | Auth/User/Notification/Billing/Settings/Admin/Market(depth/ticker/kline)/Exchange(10个适配器)/Community/Credentials/Crypto加密/WebSocket/3个测试文件 | Portfolio(handler/service)、Risk(engine) | OAuth认证、gRPC客户端、Turnstile中间件 |
 | Python 后端 | ~84 文件 | AI服务(含Web搜索)、Backtest、Strategy(含代码质量检查)、Data Providers(9个含A股/港股/期货/腾讯)、数据层基础设施(factory/cache/circuit_breaker/rate_limiter)、Workers、Alembic、Experiment(5子模块)、IBKR/MT5实盘、Polymarket研究、USDT支付、符号解析 | gRPC servicer（框架在，方法未实现） | Proto文件 |
 | 基础设施 | ~12 文件 | docker-compose(8服务+healthcheck)、CI/CD(4个workflow含deploy)、Docker构建(3个Dockerfile)、Nginx反向代理、Makefile、文档部署 | — | — |
