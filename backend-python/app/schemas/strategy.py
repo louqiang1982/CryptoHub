@@ -44,6 +44,15 @@ class StrategyResponse(BaseModel):
     model_config = {"from_attributes": True}
 
 
+class StrategyRequest(BaseModel):
+    """Request body for strategy compile/start endpoints."""
+
+    code: str
+    symbol: str = "BTC/USDT"
+    parameters: dict | None = None
+    strategy_type: str = "script"
+
+
 class CompileRequest(BaseModel):
     code: str
     strategy_type: str = "script"

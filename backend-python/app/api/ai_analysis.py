@@ -1,7 +1,6 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
 import json
-import asyncio
 from typing import Dict, Any
 
 from app.services.ai.llm_service import LLMService

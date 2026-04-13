@@ -1,6 +1,6 @@
 from typing import AsyncGenerator
 from langchain_openai import ChatOpenAI
-from langchain.schema import HumanMessage
+from langchain_core.messages import HumanMessage
 from app.core.config import settings
 
 

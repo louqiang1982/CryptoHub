@@ -55,7 +55,7 @@ async def stop_strategy(strategy_id: str) -> Dict[str, str]:
             "strategy_id": strategy_id,
             "status": "stopped"
         }
-    except Exception as e:
+    except Exception:
         raise HTTPException(status_code=404, detail="Strategy not found")
 
 
@@ -65,9 +65,15 @@ async def get_strategy_status(strategy_id: str) -> StrategyResponse:
     # TODO: Implement database lookup
     return StrategyResponse(
         id=strategy_id,
-        status="running",
+        name="Demo Strategy",
+        description=None,
+        strategy_type="script",
         symbol="BTCUSDT",
-        pnl=125.50,
-        trades_count=8,
-        uptime_seconds=3600
+        timeframe="1H",
+        exchange="binance",
+        status="running",
+        is_live=True,
+        total_trades=8,
+        win_rate=62.5,
+        total_pnl=125.50,
     )
