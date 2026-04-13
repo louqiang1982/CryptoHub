@@ -32,7 +32,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           if (data.code !== 0 || !data.data) return null;
 
           return {
-            id: data.data.access_token,
+            id: data.data.user_id ?? (credentials.email as string),
             email: credentials.email as string,
             accessToken: data.data.access_token,
             refreshToken: data.data.refresh_token,

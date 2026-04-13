@@ -221,6 +221,8 @@
     "password": "كلمة المرور",
     "confirmPassword": "تأكيد كلمة المرور",
     "forgotPassword": "نسيت كلمة المرور؟",
+    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صالحة",
+    "unexpectedError": "حدث خطأ غير متوقع",
     "rememberMe": "تذكرني",
     "loginWith": "تسجيل الدخول عبر {provider}",
     "noAccount": "ليس لديك حساب؟",

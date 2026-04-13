@@ -221,6 +221,8 @@
     "password": "Password",
     "confirmPassword": "Confirm Password",
     "forgotPassword": "Forgot Password?",
+    "invalidCredentials": "Invalid email or password",
+    "unexpectedError": "An unexpected error occurred",
     "rememberMe": "Remember Me",
     "loginWith": "Login with {provider}",
     "noAccount": "Don't have an account?",

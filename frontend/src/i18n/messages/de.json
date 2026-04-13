@@ -221,6 +221,8 @@
     "password": "Passwort",
     "confirmPassword": "Passwort bestätigen",
     "forgotPassword": "Passwort vergessen?",
+    "invalidCredentials": "Ungültige E-Mail oder Passwort",
+    "unexpectedError": "Ein unerwarteter Fehler ist aufgetreten",
     "rememberMe": "Angemeldet bleiben",
     "loginWith": "Mit {provider} anmelden",
     "noAccount": "Kein Konto?",
