@@ -44,7 +44,7 @@ docs: API-Referenz aktualisieren
 ## Tests
 
 - Schreiben Sie Tests für alle neuen Funktionen.
-- Python-Tests gehören nach `backend-python/tests/`.
+- Python-Tests gehören nach `backend/python/tests/`.
 - Verwenden Sie `pytest.mark.asyncio` für asynchrone Tests.
 - Streben Sie mindestens 80 % Abdeckung für neuen Code an.
 

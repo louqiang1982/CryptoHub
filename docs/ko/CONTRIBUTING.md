@@ -44,7 +44,7 @@ docs: API 레퍼런스 업데이트
 ## 테스트
 
 - 모든 새 기능에 테스트를 작성합니다.
-- Python 테스트는 `backend-python/tests/`에 배치합니다.
+- Python 테스트는 `backend/python/tests/`에 배치합니다.
 - 비동기 테스트에는 `pytest.mark.asyncio`를 사용합니다.
 - 새 코드의 최소 80% 커버리지를 목표로 합니다.
 

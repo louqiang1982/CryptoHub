@@ -44,7 +44,7 @@ services:
   # Go Backend - API Server
   backend-go:
     build:
-      context: ./backend-go
+      context: ./backend/go
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
@@ -69,7 +69,7 @@ services:
   # Go Backend - Worker
   backend-go-worker:
     build:
-      context: ./backend-go
+      context: ./backend/go
       dockerfile: Dockerfile
     command: ["/app/worker"]
     environment:
@@ -84,7 +84,7 @@ services:
   # Python Backend - API Server
   backend-python:
     build:
-      context: ./backend-python
+      context: ./backend/python
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
@@ -109,7 +109,7 @@ services:
   # Python Backend - Celery Worker
   backend-python-worker:
     build:
-      context: ./backend-python
+      context: ./backend/python
       dockerfile: Dockerfile
     command: ["celery", "-A", "app.workers", "worker", "--loglevel=info"]
     environment:

@@ -44,7 +44,7 @@ docs: 更新 API 參考文件
 ## 測試
 
 - 為所有新功能撰寫測試
-- Python 測試放在 `backend-python/tests/`
+- Python 測試放在 `backend/python/tests/`
 - 非同步測試使用 `pytest.mark.asyncio`
 - 新程式碼力求至少 80% 覆蓋率
 

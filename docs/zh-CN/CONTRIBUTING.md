@@ -40,14 +40,14 @@ test: 添加回测引擎边界用例测试
 
 ## 代码规范
 
-### Python（backend-python）
+### Python（backend/python）
 
 - 格式化/检查工具：**Ruff**
 - 提交前运行：`ruff check app/ --fix`
 - 测试：`pytest tests/ -v`
 - 公共 API 建议添加类型注解。
 
-### Go（backend-go）
+### Go（backend/go）
 
 - 遵循标准 `go fmt` 和 `go vet`。
 - 运行测试：`go test ./... -v`
@@ -61,7 +61,7 @@ test: 添加回测引擎边界用例测试
 ## 测试
 
 - 为所有新功能编写测试。
-- Python 测试放在 `backend-python/tests/`，对应 `app/` 的目录结构。
+- Python 测试放在 `backend/python/tests/`，对应 `app/` 的目录结构。
 - 异步测试使用 `pytest.mark.asyncio`。
 - 新代码力争至少 80% 的覆盖率。
 

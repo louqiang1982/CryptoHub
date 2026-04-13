@@ -71,7 +71,7 @@ See [SETUP.md](./SETUP.md) for the full list. In production, always set:
 Run Alembic migrations before starting the Python backend:
 
 ```bash
-cd backend-python
+cd backend/python
 alembic upgrade head
 ```
 

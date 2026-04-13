@@ -48,7 +48,7 @@ pnpm dev
 ### خادم Go الخلفي
 
 ```bash
-cd backend-go
+cd backend/go
 go mod download
 go run cmd/server/main.go
 ```
@@ -56,7 +56,7 @@ go run cmd/server/main.go
 ### خادم Python الخلفي
 
 ```bash
-cd backend-python
+cd backend/python
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
@@ -65,14 +65,14 @@ uvicorn app.main:app --reload
 ### عامل Celery
 
 ```bash
-cd backend-python
+cd backend/python
 celery -A app.workers.celery_app worker --loglevel=info
 ```
 
 ## 4 · ترحيل قاعدة البيانات
 
 ```bash
-cd backend-python
+cd backend/python
 alembic upgrade head
 ```
 
@@ -83,10 +83,10 @@ alembic upgrade head
 cd frontend && pnpm lint && pnpm build
 
 # Go
-cd backend-go && go test ./... -v
+cd backend/go && go test ./... -v
 
 # Python
-cd backend-python && ruff check app/ && pytest tests/ -v
+cd backend/python && ruff check app/ && pytest tests/ -v
 ```
 
 ## 6 · مرجع المتغيرات البيئية

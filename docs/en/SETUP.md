@@ -50,7 +50,7 @@ pnpm dev          # http://localhost:3000
 ### Go Backend
 
 ```bash
-cd backend-go
+cd backend/go
 go mod download
 go run cmd/server/main.go    # http://localhost:8080
 ```
@@ -58,7 +58,7 @@ go run cmd/server/main.go    # http://localhost:8080
 ### Python Backend
 
 ```bash
-cd backend-python
+cd backend/python
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload   # http://localhost:8000
@@ -67,14 +67,14 @@ uvicorn app.main:app --reload   # http://localhost:8000
 ### Celery Worker
 
 ```bash
-cd backend-python
+cd backend/python
 celery -A app.workers.celery_app worker --loglevel=info
 ```
 
 ## 4 · Database Migrations
 
 ```bash
-cd backend-python
+cd backend/python
 alembic upgrade head
 ```
 
@@ -91,10 +91,10 @@ alembic revision --autogenerate -m "describe change"
 cd frontend && pnpm lint && pnpm build
 
 # Go
-cd backend-go && go test ./... -v
+cd backend/go && go test ./... -v
 
 # Python
-cd backend-python
+cd backend/python
 pip install ruff pytest pytest-asyncio
 ruff check app/
 pytest tests/ -v

@@ -58,14 +58,14 @@ jobs:
 
       - uses: docker/build-push-action@v6
         with:
-          context: ./backend-go
+          context: ./backend/go
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}/backend-go:${{ steps.meta.outputs.version }}
           labels: ${{ steps.meta.outputs.labels }}
 
       - uses: docker/build-push-action@v6
         with:
-          context: ./backend-python
+          context: ./backend/python
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_PREFIX }}/backend-python:${{ steps.meta.outputs.version }}
           labels: ${{ steps.meta.outputs.labels }}

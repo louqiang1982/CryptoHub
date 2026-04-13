@@ -68,7 +68,7 @@ jobs:
 
       - uses: docker/build-push-action@v6
         with:
-          context: ./backend-go
+          context: ./backend/go
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -99,7 +99,7 @@ jobs:
 
       - uses: docker/build-push-action@v6
         with:
-          context: ./backend-python
+          context: ./backend/python
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
