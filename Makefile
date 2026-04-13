@@ -1,4 +1,4 @@
-.PHONY: help dev build test lint clean install
+.PHONY: help dev build test lint clean install proto
 
 help: ## Show this help
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n\nTargets:\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
@@ -46,6 +46,18 @@ logs: ## Tail Docker Compose logs
 
 ps: ## Show running containers
 	docker compose ps
+
+proto: ## Generate Go and Python gRPC stubs from proto files
+	@echo "Generating Go stubs..."
+	mkdir -p backend/go/proto/pb
+	protoc --go_out=backend/go/proto/pb --go_opt=paths=source_relative \
+		--go-grpc_out=backend/go/proto/pb --go-grpc_opt=paths=source_relative \
+		-I proto proto/analysis.proto proto/indicator.proto proto/market.proto
+	@echo "Generating Python stubs..."
+	python -m grpc_tools.protoc -I proto \
+		--python_out=proto --grpc_python_out=proto \
+		proto/analysis.proto proto/indicator.proto proto/market.proto
+	@echo "Proto generation complete."
 
 migrate-go: ## Run Go database migrations
 	cd backend/go && migrate -path migrations -database "$$DATABASE_URL" up
