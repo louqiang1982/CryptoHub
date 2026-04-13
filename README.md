@@ -38,7 +38,7 @@ CryptoHub is a professional cryptocurrency trading platform featuring AI-powered
 
 ```bash
 # Clone and setup
-git clone https://github.com/your-org/CryptoHub.git
+git clone https://github.com/louqiang1982/CryptoHub.git
 cd CryptoHub
 cp .env.example .env
 

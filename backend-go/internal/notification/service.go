@@ -8,7 +8,6 @@ import (
 
 	"gorm.io/gorm"
 	"github.com/google/uuid"
-	"github.com/lib/pq"
 )
 
 type Service struct {
@@ -16,18 +15,18 @@ type Service struct {
 }
 
 type Notification struct {
-	ID        uuid.UUID      `gorm:"type:uuid;primaryKey;default:gen_random_uuid()" json:"id"`
-	UserID    uuid.UUID      `gorm:"type:uuid;not null;index" json:"user_id"`
-	Type      string         `gorm:"size:50;not null" json:"type"`
-	Title     string         `gorm:"size:255;not null" json:"title"`
-	Message   string         `gorm:"type:text;not null" json:"message"`
-	Data      string         `gorm:"type:jsonb" json:"data,omitempty"`
-	Status    string         `gorm:"size:20;default:unread" json:"status"`
-	Priority  string         `gorm:"size:20;default:normal" json:"priority"`
-	Channels  pq.StringArray `gorm:"type:text[];default:'{app}'" json:"channels"`
-	SentAt    *time.Time     `json:"sent_at,omitempty"`
-	CreatedAt time.Time      `json:"created_at"`
-	UpdatedAt time.Time      `json:"updated_at"`
+	ID        uuid.UUID  `gorm:"type:uuid;primaryKey;default:gen_random_uuid()" json:"id"`
+	UserID    uuid.UUID  `gorm:"type:uuid;not null;index" json:"user_id"`
+	Type      string     `gorm:"size:50;not null" json:"type"`
+	Title     string     `gorm:"size:255;not null" json:"title"`
+	Message   string     `gorm:"type:text;not null" json:"message"`
+	Data      string     `gorm:"type:jsonb" json:"data,omitempty"`
+	Status    string     `gorm:"size:20;default:unread" json:"status"`
+	Priority  string     `gorm:"size:20;default:normal" json:"priority"`
+	Channels  string     `gorm:"type:text;default:'[\"app\"]'" json:"channels"`
+	SentAt    *time.Time `json:"sent_at,omitempty"`
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt time.Time  `json:"updated_at"`
 }
 
 func NewService(db *gorm.DB) *Service {
@@ -80,6 +79,14 @@ func (s *Service) CreateNotification(ctx context.Context, userID, notificationTy
 		dataJSON = string(dataBytes)
 	}
 
+	var channelsJSON string
+	if len(channels) > 0 {
+		channelsBytes, _ := json.Marshal(channels)
+		channelsJSON = string(channelsBytes)
+	} else {
+		channelsJSON = `["app"]`
+	}
+
 	notification := &Notification{
 		UserID:   uuid.MustParse(userID),
 		Type:     notificationType,
@@ -87,7 +94,7 @@ func (s *Service) CreateNotification(ctx context.Context, userID, notificationTy
 		Message:  message,
 		Data:     dataJSON,
 		Priority: priority,
-		Channels: channels,
+		Channels: channelsJSON,
 	}
 
 	return s.db.WithContext(ctx).Create(notification).Error
