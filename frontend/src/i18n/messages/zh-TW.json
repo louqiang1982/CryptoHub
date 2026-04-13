@@ -1,0 +1,220 @@
+{
+  "common": {
+    "appName": "CryptoHub",
+    "loading": "載入中...",
+    "save": "儲存",
+    "cancel": "取消",
+    "delete": "刪除",
+    "edit": "編輯",
+    "create": "建立",
+    "search": "搜尋",
+    "filter": "篩選",
+    "refresh": "重新整理",
+    "back": "返回",
+    "next": "下一步",
+    "confirm": "確認",
+    "close": "關閉",
+    "yes": "是",
+    "no": "否",
+    "noData": "暫無資料",
+    "error": "發生錯誤",
+    "success": "成功",
+    "comingSoon": "即將推出"
+  },
+  "nav": {
+    "dashboard": "儀表板",
+    "aiAnalysis": "AI 分析",
+    "indicator": "指標分析",
+    "indicatorMarket": "指標市場",
+    "trading": "交易助手",
+    "portfolio": "投資組合",
+    "profile": "個人資料",
+    "membership": "會員",
+    "admin": "管理面板",
+    "settings": "設定",
+    "logout": "登出",
+    "login": "登入",
+    "register": "註冊"
+  },
+  "topbar": {
+    "toggleSidebar": "切換側邊欄",
+    "notifications": "通知",
+    "noNotifications": "暫無新通知",
+    "language": "語言",
+    "theme": "主題",
+    "profile": "個人資料",
+    "logout": "登出"
+  },
+  "theme": {
+    "light": "淺色",
+    "dark": "深色",
+    "system": "跟隨系統",
+    "title": "主題設定",
+    "mode": "外觀模式",
+    "primaryColor": "主題色",
+    "customColor": "自訂顏色",
+    "presetColors": "預設顏色"
+  },
+  "dashboard": {
+    "title": "儀表板",
+    "totalEquity": "總權益",
+    "winRate": "勝率",
+    "plRatio": "盈虧比",
+    "maxDrawdown": "最大回撤",
+    "totalTrades": "總交易數",
+    "runningStrategies": "執行中策略",
+    "profitCalendar": "收益日曆",
+    "strategyDistribution": "策略分佈",
+    "drawdownCurve": "回撤曲線",
+    "tradingHours": "交易時段分佈",
+    "todayPnl": "今日盈虧",
+    "weekPnl": "本週盈虧",
+    "monthPnl": "本月盈虧"
+  },
+  "aiAnalysis": {
+    "title": "AI 資產分析",
+    "opportunityRadar": "AI 機會雷達",
+    "globalIndex": "全球指數",
+    "marketTabs": {
+      "crypto": "加密貨幣",
+      "commodities": "大宗商品",
+      "sectors": "產業板塊",
+      "forex": "外匯"
+    },
+    "watchlist": "自選清單",
+    "startAnalysis": "開始 AI 分析",
+    "analyzing": "分析中...",
+    "confidence": "信心度",
+    "signal": "訊號",
+    "buy": "買入",
+    "sell": "賣出",
+    "hold": "持有",
+    "addToWatchlist": "加入自選",
+    "removeFromWatchlist": "從自選移除"
+  },
+  "indicator": {
+    "title": "指標分析",
+    "timeframes": {
+      "1m": "1分", "5m": "5分", "15m": "15分", "30m": "30分",
+      "1H": "1時", "4H": "4時", "1D": "日", "1W": "週"
+    },
+    "indicators": {
+      "SMA": "SMA", "EMA": "EMA", "RSI": "RSI", "MACD": "MACD",
+      "BB": "布林帶", "ATR": "ATR", "CCI": "CCI",
+      "WR": "威廉指標", "MFI": "MFI", "ADX": "ADX",
+      "OBV": "OBV", "KDJ": "KDJ"
+    },
+    "drawingTools": "繪圖工具",
+    "myIndicators": "我的指標",
+    "purchasedIndicators": "已購指標",
+    "quickTrade": "快捷交易",
+    "fullscreen": "全螢幕"
+  },
+  "indicatorMarket": {
+    "title": "指標市場",
+    "search": "搜尋指標...",
+    "popular": "熱門",
+    "newest": "最新",
+    "free": "免費",
+    "premium": "付費",
+    "install": "安裝",
+    "installed": "已安裝",
+    "price": "價格",
+    "rating": "評分",
+    "downloads": "下載量"
+  },
+  "trading": {
+    "title": "交易助手",
+    "strategyList": "策略列表",
+    "strategyDetail": "策略詳情",
+    "createStrategy": "建立策略",
+    "groupBy": {
+      "strategy": "按策略",
+      "symbol": "按標的"
+    },
+    "emptyState": "暫無策略，建立您的第一個策略開始交易。",
+    "status": {
+      "running": "執行中",
+      "stopped": "已停止",
+      "error": "錯誤",
+      "paused": "已暫停"
+    },
+    "actions": {
+      "start": "啟動", "stop": "停止", "pause": "暫停",
+      "backtest": "回測", "duplicate": "複製"
+    }
+  },
+  "portfolio": {
+    "title": "投資組合",
+    "overview": "概覽",
+    "positions": "持倉",
+    "history": "交易紀錄",
+    "totalValue": "總價值",
+    "unrealizedPnl": "未實現盈虧",
+    "realizedPnl": "已實現盈虧",
+    "asset": "資產",
+    "quantity": "數量",
+    "avgPrice": "均價",
+    "currentPrice": "現價",
+    "pnl": "盈虧"
+  },
+  "profile": {
+    "title": "個人資料",
+    "personalInfo": "個人資訊",
+    "apiKeys": "API 金鑰管理",
+    "notifications": "通知設定",
+    "security": "安全設定",
+    "username": "使用者名稱",
+    "email": "電子郵件",
+    "changePassword": "修改密碼",
+    "twoFactor": "兩步驟驗證",
+    "addApiKey": "新增 API 金鑰",
+    "exchange": "交易所"
+  },
+  "membership": {
+    "title": "會員",
+    "currentPlan": "目前方案",
+    "upgrade": "升級",
+    "plans": {
+      "free": "免費版",
+      "pro": "專業版",
+      "enterprise": "企業版"
+    },
+    "billing": "帳單",
+    "credits": "點數"
+  },
+  "admin": {
+    "title": "管理面板",
+    "users": "使用者管理",
+    "roles": "角色管理",
+    "systemSettings": "系統設定",
+    "logs": "系統日誌",
+    "totalUsers": "總使用者數",
+    "activeUsers": "活躍使用者",
+    "totalRevenue": "總收入",
+    "serverUptime": "伺服器運行時間"
+  },
+  "auth": {
+    "login": "登入",
+    "register": "註冊",
+    "email": "電子郵件",
+    "password": "密碼",
+    "confirmPassword": "確認密碼",
+    "forgotPassword": "忘記密碼？",
+    "rememberMe": "記住我",
+    "loginWith": "使用 {provider} 登入",
+    "noAccount": "還沒有帳號？",
+    "hasAccount": "已有帳號？",
+    "termsAgree": "我同意服務條款"
+  },
+  "errors": {
+    "required": "此欄位為必填",
+    "invalidEmail": "電子郵件地址無效",
+    "passwordMinLength": "密碼至少需要8個字元",
+    "passwordMismatch": "兩次密碼輸入不一致",
+    "networkError": "網路錯誤，請重試。",
+    "unauthorized": "未授權，請登入。",
+    "notFound": "未找到。",
+    "serverError": "伺服器錯誤，請稍後重試。"
+  }
+}

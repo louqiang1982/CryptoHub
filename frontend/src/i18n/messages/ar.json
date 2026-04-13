@@ -1,0 +1,220 @@
+{
+  "common": {
+    "appName": "CryptoHub",
+    "loading": "جاري التحميل...",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "create": "إنشاء",
+    "search": "بحث",
+    "filter": "تصفية",
+    "refresh": "تحديث",
+    "back": "رجوع",
+    "next": "التالي",
+    "confirm": "تأكيد",
+    "close": "إغلاق",
+    "yes": "نعم",
+    "no": "لا",
+    "noData": "لا توجد بيانات",
+    "error": "حدث خطأ",
+    "success": "نجاح",
+    "comingSoon": "قريباً"
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "aiAnalysis": "تحليل الذكاء الاصطناعي",
+    "indicator": "تحليل المؤشرات",
+    "indicatorMarket": "سوق المؤشرات",
+    "trading": "مساعد التداول",
+    "portfolio": "المحفظة",
+    "profile": "الملف الشخصي",
+    "membership": "العضوية",
+    "admin": "لوحة الإدارة",
+    "settings": "الإعدادات",
+    "logout": "تسجيل الخروج",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب"
+  },
+  "topbar": {
+    "toggleSidebar": "تبديل الشريط الجانبي",
+    "notifications": "الإشعارات",
+    "noNotifications": "لا توجد إشعارات جديدة",
+    "language": "اللغة",
+    "theme": "المظهر",
+    "profile": "الملف الشخصي",
+    "logout": "تسجيل الخروج"
+  },
+  "theme": {
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام",
+    "title": "إعدادات المظهر",
+    "mode": "وضع المظهر",
+    "primaryColor": "اللون الرئيسي",
+    "customColor": "لون مخصص",
+    "presetColors": "ألوان مسبقة"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "totalEquity": "إجمالي الأصول",
+    "winRate": "نسبة الفوز",
+    "plRatio": "نسبة الربح/الخسارة",
+    "maxDrawdown": "أقصى تراجع",
+    "totalTrades": "إجمالي الصفقات",
+    "runningStrategies": "الاستراتيجيات النشطة",
+    "profitCalendar": "تقويم الأرباح",
+    "strategyDistribution": "توزيع الاستراتيجيات",
+    "drawdownCurve": "منحنى التراجع",
+    "tradingHours": "توزيع ساعات التداول",
+    "todayPnl": "أرباح اليوم",
+    "weekPnl": "أرباح الأسبوع",
+    "monthPnl": "أرباح الشهر"
+  },
+  "aiAnalysis": {
+    "title": "تحليل الأصول بالذكاء الاصطناعي",
+    "opportunityRadar": "رادار الفرص",
+    "globalIndex": "المؤشرات العالمية",
+    "marketTabs": {
+      "crypto": "العملات الرقمية",
+      "commodities": "السلع",
+      "sectors": "القطاعات",
+      "forex": "العملات"
+    },
+    "watchlist": "قائمة المراقبة",
+    "startAnalysis": "بدء التحليل",
+    "analyzing": "جاري التحليل...",
+    "confidence": "الثقة",
+    "signal": "الإشارة",
+    "buy": "شراء",
+    "sell": "بيع",
+    "hold": "احتفاظ",
+    "addToWatchlist": "إضافة للمراقبة",
+    "removeFromWatchlist": "إزالة من المراقبة"
+  },
+  "indicator": {
+    "title": "تحليل المؤشرات",
+    "timeframes": {
+      "1m": "1د", "5m": "5د", "15m": "15د", "30m": "30د",
+      "1H": "1س", "4H": "4س", "1D": "يوم", "1W": "أسبوع"
+    },
+    "indicators": {
+      "SMA": "SMA", "EMA": "EMA", "RSI": "RSI", "MACD": "MACD",
+      "BB": "بولنجر", "ATR": "ATR", "CCI": "CCI",
+      "WR": "ويليامز %R", "MFI": "MFI", "ADX": "ADX",
+      "OBV": "OBV", "KDJ": "KDJ"
+    },
+    "drawingTools": "أدوات الرسم",
+    "myIndicators": "مؤشراتي",
+    "purchasedIndicators": "المؤشرات المشتراة",
+    "quickTrade": "تداول سريع",
+    "fullscreen": "شاشة كاملة"
+  },
+  "indicatorMarket": {
+    "title": "سوق المؤشرات",
+    "search": "البحث عن مؤشرات...",
+    "popular": "شائع",
+    "newest": "الأحدث",
+    "free": "مجاني",
+    "premium": "مميز",
+    "install": "تثبيت",
+    "installed": "مثبت",
+    "price": "السعر",
+    "rating": "التقييم",
+    "downloads": "التنزيلات"
+  },
+  "trading": {
+    "title": "مساعد التداول",
+    "strategyList": "قائمة الاستراتيجيات",
+    "strategyDetail": "تفاصيل الاستراتيجية",
+    "createStrategy": "إنشاء استراتيجية",
+    "groupBy": {
+      "strategy": "حسب الاستراتيجية",
+      "symbol": "حسب الرمز"
+    },
+    "emptyState": "لا توجد استراتيجيات. أنشئ أول استراتيجية للبدء.",
+    "status": {
+      "running": "قيد التشغيل",
+      "stopped": "متوقف",
+      "error": "خطأ",
+      "paused": "مؤقت"
+    },
+    "actions": {
+      "start": "تشغيل", "stop": "إيقاف", "pause": "إيقاف مؤقت",
+      "backtest": "اختبار رجعي", "duplicate": "تكرار"
+    }
+  },
+  "portfolio": {
+    "title": "المحفظة",
+    "overview": "نظرة عامة",
+    "positions": "المراكز",
+    "history": "سجل التداول",
+    "totalValue": "القيمة الإجمالية",
+    "unrealizedPnl": "أرباح غير محققة",
+    "realizedPnl": "أرباح محققة",
+    "asset": "الأصل",
+    "quantity": "الكمية",
+    "avgPrice": "متوسط السعر",
+    "currentPrice": "السعر الحالي",
+    "pnl": "الربح/الخسارة"
+  },
+  "profile": {
+    "title": "الملف الشخصي",
+    "personalInfo": "المعلومات الشخصية",
+    "apiKeys": "إدارة مفاتيح API",
+    "notifications": "إعدادات الإشعارات",
+    "security": "الأمان",
+    "username": "اسم المستخدم",
+    "email": "البريد الإلكتروني",
+    "changePassword": "تغيير كلمة المرور",
+    "twoFactor": "التحقق بخطوتين",
+    "addApiKey": "إضافة مفتاح API",
+    "exchange": "المنصة"
+  },
+  "membership": {
+    "title": "العضوية",
+    "currentPlan": "الخطة الحالية",
+    "upgrade": "ترقية",
+    "plans": {
+      "free": "مجاني",
+      "pro": "احترافي",
+      "enterprise": "مؤسسات"
+    },
+    "billing": "الفواتير",
+    "credits": "الرصيد"
+  },
+  "admin": {
+    "title": "لوحة الإدارة",
+    "users": "إدارة المستخدمين",
+    "roles": "إدارة الأدوار",
+    "systemSettings": "إعدادات النظام",
+    "logs": "سجلات النظام",
+    "totalUsers": "إجمالي المستخدمين",
+    "activeUsers": "المستخدمون النشطون",
+    "totalRevenue": "إجمالي الإيرادات",
+    "serverUptime": "وقت تشغيل الخادم"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "rememberMe": "تذكرني",
+    "loginWith": "تسجيل الدخول عبر {provider}",
+    "noAccount": "ليس لديك حساب؟",
+    "hasAccount": "لديك حساب بالفعل؟",
+    "termsAgree": "أوافق على شروط الخدمة"
+  },
+  "errors": {
+    "required": "هذا الحقل مطلوب",
+    "invalidEmail": "عنوان البريد الإلكتروني غير صالح",
+    "passwordMinLength": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+    "passwordMismatch": "كلمات المرور غير متطابقة",
+    "networkError": "خطأ في الشبكة. يرجى المحاولة مرة أخرى.",
+    "unauthorized": "غير مصرح. يرجى تسجيل الدخول.",
+    "notFound": "غير موجود.",
+    "serverError": "خطأ في الخادم. يرجى المحاولة لاحقاً."
+  }
+}

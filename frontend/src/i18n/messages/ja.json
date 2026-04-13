@@ -1,0 +1,220 @@
+{
+  "common": {
+    "appName": "CryptoHub",
+    "loading": "読み込み中...",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "create": "作成",
+    "search": "検索",
+    "filter": "フィルター",
+    "refresh": "更新",
+    "back": "戻る",
+    "next": "次へ",
+    "confirm": "確認",
+    "close": "閉じる",
+    "yes": "はい",
+    "no": "いいえ",
+    "noData": "データがありません",
+    "error": "エラーが発生しました",
+    "success": "成功",
+    "comingSoon": "近日公開"
+  },
+  "nav": {
+    "dashboard": "ダッシュボード",
+    "aiAnalysis": "AI分析",
+    "indicator": "インジケーター分析",
+    "indicatorMarket": "インジケーターマーケット",
+    "trading": "トレーディングアシスタント",
+    "portfolio": "ポートフォリオ",
+    "profile": "プロフィール",
+    "membership": "メンバーシップ",
+    "admin": "管理パネル",
+    "settings": "設定",
+    "logout": "ログアウト",
+    "login": "ログイン",
+    "register": "新規登録"
+  },
+  "topbar": {
+    "toggleSidebar": "サイドバー切替",
+    "notifications": "通知",
+    "noNotifications": "新しい通知はありません",
+    "language": "言語",
+    "theme": "テーマ",
+    "profile": "プロフィール",
+    "logout": "ログアウト"
+  },
+  "theme": {
+    "light": "ライト",
+    "dark": "ダーク",
+    "system": "システム",
+    "title": "テーマ設定",
+    "mode": "外観モード",
+    "primaryColor": "メインカラー",
+    "customColor": "カスタムカラー",
+    "presetColors": "プリセットカラー"
+  },
+  "dashboard": {
+    "title": "ダッシュボード",
+    "totalEquity": "総資産",
+    "winRate": "勝率",
+    "plRatio": "損益比",
+    "maxDrawdown": "最大ドローダウン",
+    "totalTrades": "総取引数",
+    "runningStrategies": "稼働中の戦略",
+    "profitCalendar": "収益カレンダー",
+    "strategyDistribution": "戦略分布",
+    "drawdownCurve": "ドローダウン曲線",
+    "tradingHours": "取引時間帯分布",
+    "todayPnl": "本日の損益",
+    "weekPnl": "今週の損益",
+    "monthPnl": "今月の損益"
+  },
+  "aiAnalysis": {
+    "title": "AI資産分析",
+    "opportunityRadar": "AI機会レーダー",
+    "globalIndex": "グローバル指数",
+    "marketTabs": {
+      "crypto": "暗号通貨",
+      "commodities": "コモディティ",
+      "sectors": "セクター",
+      "forex": "為替"
+    },
+    "watchlist": "ウォッチリスト",
+    "startAnalysis": "AI分析開始",
+    "analyzing": "分析中...",
+    "confidence": "信頼度",
+    "signal": "シグナル",
+    "buy": "買い",
+    "sell": "売り",
+    "hold": "保有",
+    "addToWatchlist": "ウォッチリストに追加",
+    "removeFromWatchlist": "ウォッチリストから削除"
+  },
+  "indicator": {
+    "title": "インジケーター分析",
+    "timeframes": {
+      "1m": "1分", "5m": "5分", "15m": "15分", "30m": "30分",
+      "1H": "1時間", "4H": "4時間", "1D": "日足", "1W": "週足"
+    },
+    "indicators": {
+      "SMA": "SMA", "EMA": "EMA", "RSI": "RSI", "MACD": "MACD",
+      "BB": "ボリンジャーバンド", "ATR": "ATR", "CCI": "CCI",
+      "WR": "ウィリアムズ%R", "MFI": "MFI", "ADX": "ADX",
+      "OBV": "OBV", "KDJ": "KDJ"
+    },
+    "drawingTools": "描画ツール",
+    "myIndicators": "マイインジケーター",
+    "purchasedIndicators": "購入済みインジケーター",
+    "quickTrade": "クイックトレード",
+    "fullscreen": "全画面"
+  },
+  "indicatorMarket": {
+    "title": "インジケーターマーケット",
+    "search": "インジケーターを検索...",
+    "popular": "人気",
+    "newest": "最新",
+    "free": "無料",
+    "premium": "有料",
+    "install": "インストール",
+    "installed": "インストール済み",
+    "price": "価格",
+    "rating": "評価",
+    "downloads": "ダウンロード数"
+  },
+  "trading": {
+    "title": "トレーディングアシスタント",
+    "strategyList": "戦略リスト",
+    "strategyDetail": "戦略詳細",
+    "createStrategy": "戦略を作成",
+    "groupBy": {
+      "strategy": "戦略別",
+      "symbol": "銘柄別"
+    },
+    "emptyState": "戦略がありません。最初の戦略を作成して取引を始めましょう。",
+    "status": {
+      "running": "稼働中",
+      "stopped": "停止",
+      "error": "エラー",
+      "paused": "一時停止"
+    },
+    "actions": {
+      "start": "開始", "stop": "停止", "pause": "一時停止",
+      "backtest": "バックテスト", "duplicate": "複製"
+    }
+  },
+  "portfolio": {
+    "title": "ポートフォリオ",
+    "overview": "概要",
+    "positions": "ポジション",
+    "history": "取引履歴",
+    "totalValue": "総額",
+    "unrealizedPnl": "未実現損益",
+    "realizedPnl": "実現損益",
+    "asset": "資産",
+    "quantity": "数量",
+    "avgPrice": "平均単価",
+    "currentPrice": "現在価格",
+    "pnl": "損益"
+  },
+  "profile": {
+    "title": "プロフィール",
+    "personalInfo": "個人情報",
+    "apiKeys": "APIキー管理",
+    "notifications": "通知設定",
+    "security": "セキュリティ",
+    "username": "ユーザー名",
+    "email": "メール",
+    "changePassword": "パスワード変更",
+    "twoFactor": "二段階認証",
+    "addApiKey": "APIキーを追加",
+    "exchange": "取引所"
+  },
+  "membership": {
+    "title": "メンバーシップ",
+    "currentPlan": "現在のプラン",
+    "upgrade": "アップグレード",
+    "plans": {
+      "free": "無料",
+      "pro": "プロ",
+      "enterprise": "エンタープライズ"
+    },
+    "billing": "請求",
+    "credits": "クレジット"
+  },
+  "admin": {
+    "title": "管理パネル",
+    "users": "ユーザー管理",
+    "roles": "ロール管理",
+    "systemSettings": "システム設定",
+    "logs": "システムログ",
+    "totalUsers": "総ユーザー数",
+    "activeUsers": "アクティブユーザー",
+    "totalRevenue": "総収益",
+    "serverUptime": "サーバー稼働時間"
+  },
+  "auth": {
+    "login": "ログイン",
+    "register": "新規登録",
+    "email": "メール",
+    "password": "パスワード",
+    "confirmPassword": "パスワード確認",
+    "forgotPassword": "パスワードをお忘れですか？",
+    "rememberMe": "ログイン状態を保持",
+    "loginWith": "{provider}でログイン",
+    "noAccount": "アカウントをお持ちでないですか？",
+    "hasAccount": "アカウントをお持ちですか？",
+    "termsAgree": "利用規約に同意します"
+  },
+  "errors": {
+    "required": "この項目は必須です",
+    "invalidEmail": "メールアドレスが無効です",
+    "passwordMinLength": "パスワードは8文字以上必要です",
+    "passwordMismatch": "パスワードが一致しません",
+    "networkError": "ネットワークエラー。再試行してください。",
+    "unauthorized": "認証されていません。ログインしてください。",
+    "notFound": "見つかりません。",
+    "serverError": "サーバーエラー。後でもう一度お試しください。"
+  }
+}

@@ -1,0 +1,117 @@
+services:
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend-go:8080
+      - NEXT_PUBLIC_WS_URL=ws://backend-go:8081
+    depends_on:
+      - backend-go
+      - backend-python
+
+  # Go Backend - API Server
+  backend-go:
+    build:
+      context: ./backend-go
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@postgres:5432/cryptohub?sslmode=disable
+      - REDIS_URL=redis://redis:6379/0
+      - JWT_SECRET=change-me-in-production
+      - PYTHON_GRPC_ADDR=backend-python:50051
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # Go Backend - Worker
+  backend-go-worker:
+    build:
+      context: ./backend-go
+      dockerfile: Dockerfile
+    command: ["/app/worker"]
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@postgres:5432/cryptohub?sslmode=disable
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # Python Backend - API Server
+  backend-python:
+    build:
+      context: ./backend-python
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+      - "50051:50051"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/cryptohub
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # Python Backend - Celery Worker
+  backend-python-worker:
+    build:
+      context: ./backend-python
+      dockerfile: Dockerfile
+    command: ["celery", "-A", "app.workers", "worker", "--loglevel=info"]
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@postgres:5432/cryptohub
+      - REDIS_URL=redis://redis:6379/0
+      - CELERY_BROKER_URL=redis://redis:6379/1
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # PostgreSQL
+  postgres:
+    image: postgres:17-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: cryptohub
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Redis
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  redis_data:
