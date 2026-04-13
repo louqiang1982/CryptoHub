@@ -44,7 +44,7 @@ docs: API リファレンスの更新
 ## テスト
 
 - 新機能にはテストを書いてください。
-- Python テストは `backend-python/tests/` に配置。
+- Python テストは `backend/python/tests/` に配置。
 - 非同期テストには `pytest.mark.asyncio` を使用。
 - 新コードは最低 80% のカバレッジを目指してください。
 

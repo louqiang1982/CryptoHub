@@ -71,7 +71,7 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 启动 Python 后端前运行 Alembic 迁移：
 
 ```bash
-cd backend-python
+cd backend/python
 alembic upgrade head
 ```
 

@@ -48,7 +48,7 @@ pnpm dev
 ### Go 백엔드
 
 ```bash
-cd backend-go
+cd backend/go
 go mod download
 go run cmd/server/main.go
 ```
@@ -56,7 +56,7 @@ go run cmd/server/main.go
 ### Python 백엔드
 
 ```bash
-cd backend-python
+cd backend/python
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
@@ -65,14 +65,14 @@ uvicorn app.main:app --reload
 ### Celery 워커
 
 ```bash
-cd backend-python
+cd backend/python
 celery -A app.workers.celery_app worker --loglevel=info
 ```
 
 ## 4 · 데이터베이스 마이그레이션
 
 ```bash
-cd backend-python
+cd backend/python
 alembic upgrade head
 ```
 
@@ -83,10 +83,10 @@ alembic upgrade head
 cd frontend && pnpm lint && pnpm build
 
 # Go
-cd backend-go && go test ./... -v
+cd backend/go && go test ./... -v
 
 # Python
-cd backend-python && ruff check app/ && pytest tests/ -v
+cd backend/python && ruff check app/ && pytest tests/ -v
 ```
 
 ## 6 · 환경 변수 참조

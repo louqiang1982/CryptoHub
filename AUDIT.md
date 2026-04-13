@@ -55,7 +55,7 @@
 
 ---
 
-### 2.2 Go 后端（backend-go — Gin/GORM/Redis）
+### 2.2 Go 后端（backend/go — Gin/GORM/Redis）
 
 #### ✅ 已完成
 
@@ -84,7 +84,7 @@
 
 | # | 项目 | 文件/目录 | 严重程度 | 说明 |
 |---|------|----------|---------|------|
-| G-1 | **无任何 Go 单元测试** | `backend-go/**/*_test.go`（不存在） | 🔴 **阻断上线** | CI 中 `go test ./... -v` 会成功（无测试文件=无失败），但实际业务逻辑完全未覆盖；auth/user/billing等核心模块均无测试 |
+| G-1 | **无任何 Go 单元测试** | `backend/go/**/*_test.go`（不存在） | 🔴 **阻断上线** | CI 中 `go test ./... -v` 会成功（无测试文件=无失败），但实际业务逻辑完全未覆盖；auth/user/billing等核心模块均无测试 |
 | G-2 | **市场数据模块为单文件多包 Stub** | `internal/market/stubs.go` | 🔴 **阻断上线** | kline/ticker/depth 三个包写在同一个 `.go` 文件中，实际返回空数组；无真实 CCXT/交易所数据拉取逻辑 |
 | G-3 | **组合服务/Handler 为 Stub** | `internal/trading/portfolio/model.go` | 🔴 **阻断上线** | Portfolio model 完整，但 service/handler 均为单行 stub（`ListPortfolios` 返回空数组）；无真实持仓聚合逻辑 |
 | G-4 | **9个交易所适配器未实现** | `internal/trading/exchange/` | 🔴 **阻断上线** | factory.go 注册了 OKX/Bitget/Bybit/Coinbase/Kraken/KuCoin/Gate/DeepCoin/HTX，但对应实现文件缺失，仅有 `binance.go` |
@@ -101,7 +101,7 @@
 
 ---
 
-### 2.3 Python 后端（backend-python — FastAPI/Celery/gRPC）
+### 2.3 Python 后端（backend/python — FastAPI/Celery/gRPC）
 
 #### ✅ 已完成
 
@@ -150,7 +150,7 @@
 | CI 工作流 | `.github/workflows/ci.yml` | Frontend(pnpm lint+build) + Go(vet+build+test) + Python(ruff+pytest) + Docker build |
 | Docker 构建推送 | `.github/workflows/docker-build.yml` | 三个镜像构建推送到 GHCR，支持 tag/sha/branch 标签 |
 | 文档部署 | `.github/workflows/docs-deploy.yml` | 自动部署 8 语言文档到 GitHub Pages |
-| Dockerfile | `backend-go/Dockerfile`、`backend-python/Dockerfile`、`frontend/`（在package.json） | 三个服务独立 Dockerfile |
+| Dockerfile | `backend/go/Dockerfile`、`backend/python/Dockerfile`、`frontend/`（在package.json） | 三个服务独立 Dockerfile |
 
 #### ❌ 未完成 / 缺失
 
@@ -159,7 +159,7 @@
 | I-1 | **生产环境部署工作流缺失** | `.github/workflows/deploy.yml`（不存在） | 🔴 **阻断上线** | 有 Docker 构建，但无自动部署到服务器/K8s 的 CD 工作流；无 SSH 部署、无 Helm chart、无 Kubernetes 清单文件 |
 | I-2 | **Nginx 反向代理配置缺失** | `nginx.conf` 或 `docker/nginx/`（不存在） | 🔴 **阻断上线** | docker-compose.yml 无 nginx 服务；生产部署时 frontend(3000)/go-api(8080)/python-api(8000) 端口暴露无统一入口 |
 | I-3 | **docker-compose.yml 缺少健康检查** | `docker-compose.yml` | 🟡 **影响体验** | 各服务无 `healthcheck` 配置，服务启动顺序依赖 `depends_on` 但无就绪检查，可能导致启动失败 |
-| I-4 | **根目录 Makefile 缺失** | `Makefile`（不存在） | 🟢 **优化项** | 只有 `backend-go/Makefile`；无根目录 Makefile 统一 `make dev`/`make test`/`make build` 命令 |
+| I-4 | **根目录 Makefile 缺失** | `Makefile`（不存在） | 🟢 **优化项** | 只有 `backend/go/Makefile`；无根目录 Makefile 统一 `make dev`/`make test`/`make build` 命令 |
 | I-5 | **README 中仓库链接错误** | `README.md` 第23行 | 🟡 **影响体验** | Quick Start 中 `git clone https://github.com/your-org/CryptoHub.git` 使用占位符 `your-org` 而非 `louqiang1982` |
 | I-6 | **frontend/Dockerfile 缺失** | `frontend/Dockerfile`（不存在） | 🔴 **阻断上线** | `docker-compose.yml` 和 `docker-build.yml` 引用 `context: ./frontend`，但 frontend 目录无 Dockerfile，Docker 构建会失败 |
 | I-7 | **gRPC 端口未在 docker-compose 中暴露** | `docker-compose.yml` | 🟡 **影响体验** | Python 服务有 gRPC 端口配置（config.py 中的 GRPC_PORT），但 docker-compose.yml 未映射该端口 |
@@ -199,7 +199,7 @@
 | 5 | 前端 | **认证集成缺失**（next-auth session + form action），无法登录 | `frontend/src/app/[locale]/(auth)/` |
 | 6 | 前端 | **API 请求层缺失**，无法连接后端获取真实数据 | `frontend/src/lib/api/` |
 | 7 | 前端 | **WebSocket 客户端缺失**，无实时行情推送 | `frontend/src/hooks/useWebSocket.ts` |
-| 8 | Go 后端 | **无任何单元测试**，CI `go test` 零覆盖率 | `backend-go/**/*_test.go` |
+| 8 | Go 后端 | **无任何单元测试**，CI `go test` 零覆盖率 | `backend/go/**/*_test.go` |
 | 9 | Go 后端 | **9个交易所适配器未实现**（仅 Binance），无法连接其他交易所 | `internal/trading/exchange/okx.go` 等 |
 | 10 | Go 后端 | **OAuth 认证未实现**（Google/GitHub），用户无法第三方登录 | `internal/auth/oauth.go` |
 | 11 | Go 后端 | **API 密钥加密存储模块缺失**，Exchange API Key 无法安全存储 | `pkg/crypto/` |

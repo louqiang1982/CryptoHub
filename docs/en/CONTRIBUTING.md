@@ -40,14 +40,14 @@ test: add backtest engine edge case tests
 
 ## Code Standards
 
-### Python (backend-python)
+### Python (backend/python)
 
 - Formatter / linter: **Ruff**
 - Run before committing: `ruff check app/ --fix`
 - Tests: `pytest tests/ -v`
 - Type hints are encouraged for all public APIs.
 
-### Go (backend-go)
+### Go (backend/go)
 
 - Follow standard `go fmt` and `go vet`.
 - Run tests: `go test ./... -v`
@@ -61,7 +61,7 @@ test: add backtest engine edge case tests
 ## Testing
 
 - Write tests for all new functionality.
-- Place Python tests in `backend-python/tests/` mirroring the `app/` structure.
+- Place Python tests in `backend/python/tests/` mirroring the `app/` structure.
 - Use `pytest.mark.asyncio` for async tests.
 - Aim for at least 80 % coverage on new code.
 

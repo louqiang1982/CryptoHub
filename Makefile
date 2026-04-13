@@ -5,8 +5,8 @@ help: ## Show this help
 
 install: ## Install all dependencies
 	cd frontend && pnpm install
-	cd backend-go && go mod download
-	cd backend-python && pip install -r requirements.txt
+	cd backend/go && go mod download
+	cd backend/python && pip install -r requirements.txt
 
 dev: ## Start all services in development mode
 	docker compose up -d postgres redis
@@ -23,22 +23,22 @@ down: ## Stop all Docker Compose services
 
 build: ## Build all services
 	cd frontend && pnpm build
-	cd backend-go && go build ./...
-	cd backend-python && python -m py_compile app/main.py
+	cd backend/go && go build ./...
+	cd backend/python && python -m py_compile app/main.py
 
 test: ## Run all tests
 	cd frontend && pnpm lint
-	cd backend-go && go test ./... -v
-	cd backend-python && pytest tests/ -v
+	cd backend/go && go test ./... -v
+	cd backend/python && pytest tests/ -v
 
 lint: ## Lint all code
 	cd frontend && pnpm lint
-	cd backend-go && go vet ./...
-	cd backend-python && ruff check app/
+	cd backend/go && go vet ./...
+	cd backend/python && ruff check app/
 
 clean: ## Remove build artifacts
 	cd frontend && rm -rf .next out
-	cd backend-go && rm -f cryptohub-api cryptohub-worker cryptohub-ws
+	cd backend/go && rm -f cryptohub-api cryptohub-worker cryptohub-ws
 	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
 
 logs: ## Tail Docker Compose logs
@@ -48,7 +48,7 @@ ps: ## Show running containers
 	docker compose ps
 
 migrate-go: ## Run Go database migrations
-	cd backend-go && migrate -path migrations -database "$$DATABASE_URL" up
+	cd backend/go && migrate -path migrations -database "$$DATABASE_URL" up
 
 migrate-python: ## Run Python (Alembic) migrations
-	cd backend-python && alembic upgrade head
+	cd backend/python && alembic upgrade head
