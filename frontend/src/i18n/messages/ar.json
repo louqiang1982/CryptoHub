@@ -34,7 +34,9 @@
     "settings": "الإعدادات",
     "logout": "تسجيل الخروج",
     "login": "تسجيل الدخول",
-    "register": "إنشاء حساب"
+    "register": "إنشاء حساب",
+    "polymarket": "سوق التنبؤات",
+    "experiment": "المختبر"
   },
   "topbar": {
     "toggleSidebar": "تبديل الشريط الجانبي",
@@ -69,7 +71,8 @@
     "tradingHours": "توزيع ساعات التداول",
     "todayPnl": "أرباح اليوم",
     "weekPnl": "أرباح الأسبوع",
-    "monthPnl": "أرباح الشهر"
+    "monthPnl": "أرباح الشهر",
+    "vsLastMonth": "مقارنة بالشهر الماضي"
   },
   "aiAnalysis": {
     "title": "تحليل الأصول بالذكاء الاصطناعي",
@@ -95,14 +98,28 @@
   "indicator": {
     "title": "تحليل المؤشرات",
     "timeframes": {
-      "1m": "1د", "5m": "5د", "15m": "15د", "30m": "30د",
-      "1H": "1س", "4H": "4س", "1D": "يوم", "1W": "أسبوع"
+      "1m": "1د",
+      "5m": "5د",
+      "15m": "15د",
+      "30m": "30د",
+      "1H": "1س",
+      "4H": "4س",
+      "1D": "يوم",
+      "1W": "أسبوع"
     },
     "indicators": {
-      "SMA": "SMA", "EMA": "EMA", "RSI": "RSI", "MACD": "MACD",
-      "BB": "بولنجر", "ATR": "ATR", "CCI": "CCI",
-      "WR": "ويليامز %R", "MFI": "MFI", "ADX": "ADX",
-      "OBV": "OBV", "KDJ": "KDJ"
+      "SMA": "SMA",
+      "EMA": "EMA",
+      "RSI": "RSI",
+      "MACD": "MACD",
+      "BB": "بولنجر",
+      "ATR": "ATR",
+      "CCI": "CCI",
+      "WR": "ويليامز %R",
+      "MFI": "MFI",
+      "ADX": "ADX",
+      "OBV": "OBV",
+      "KDJ": "KDJ"
     },
     "drawingTools": "أدوات الرسم",
     "myIndicators": "مؤشراتي",
@@ -140,8 +157,11 @@
       "paused": "مؤقت"
     },
     "actions": {
-      "start": "تشغيل", "stop": "إيقاف", "pause": "إيقاف مؤقت",
-      "backtest": "اختبار رجعي", "duplicate": "تكرار"
+      "start": "تشغيل",
+      "stop": "إيقاف",
+      "pause": "إيقاف مؤقت",
+      "backtest": "اختبار رجعي",
+      "duplicate": "تكرار"
     }
   },
   "portfolio": {
@@ -216,5 +236,18 @@
     "unauthorized": "غير مصرح. يرجى تسجيل الدخول.",
     "notFound": "غير موجود.",
     "serverError": "خطأ في الخادم. يرجى المحاولة لاحقاً."
+  },
+  "polymarket": {
+    "title": "أسواق التنبؤات",
+    "subtitle": "Polymarket",
+    "trending": "الأسواق الرائجة",
+    "searchPlaceholder": "البحث في الأسواق...",
+    "volume": "الحجم",
+    "liquidity": "السيولة",
+    "endDate": "تنتهي",
+    "yesOdds": "نعم",
+    "noOdds": "لا",
+    "noMarkets": "لم يتم العثور على أسواق",
+    "loading": "جار تحميل الأسواق..."
   }
 }

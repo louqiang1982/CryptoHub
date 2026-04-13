@@ -26,12 +26,15 @@ import (
 	"github.com/louqiang1982/CryptoHub/backend-go/internal/market/kline"
 	"github.com/louqiang1982/CryptoHub/backend-go/internal/market/ticker"
 	"github.com/louqiang1982/CryptoHub/backend-go/internal/market/depth"
+	"github.com/louqiang1982/CryptoHub/backend-go/internal/market/global"
 	"github.com/louqiang1982/CryptoHub/backend-go/internal/strategy"
 	"github.com/louqiang1982/CryptoHub/backend-go/internal/notification"
 	"github.com/louqiang1982/CryptoHub/backend-go/internal/billing"
 	"github.com/louqiang1982/CryptoHub/backend-go/internal/settings"
 	"github.com/louqiang1982/CryptoHub/backend-go/internal/dashboard"
 	"github.com/louqiang1982/CryptoHub/backend-go/internal/admin"
+	"github.com/louqiang1982/CryptoHub/backend-go/internal/community"
+	"github.com/louqiang1982/CryptoHub/backend-go/internal/credentials"
 	"github.com/louqiang1982/CryptoHub/backend-go/pkg/middleware"
 )
 
@@ -104,6 +107,15 @@ func main() {
 	adminService := admin.NewService(db)
 	adminHandler := admin.NewHandler(adminService)
 
+	communityHandler := community.NewHandler(db)
+	globalMarketHandler := global.NewHandler()
+
+	encryptKey := viper.GetString("credentials.encrypt_key")
+	if encryptKey == "" {
+		encryptKey = "change-me-in-production"
+	}
+	credentialsHandler := credentials.NewHandler(db, encryptKey)
+
 	// Setup Gin router
 	r := gin.New()
 
@@ -152,6 +164,11 @@ func main() {
 	adminGroup := protected.Group("/admin")
 	adminGroup.Use(middleware.Admin())
 	adminHandler.RegisterRoutes(adminGroup)
+
+	// Community, global market, credentials routes
+	communityHandler.RegisterRoutes(protected)
+	globalMarketHandler.RegisterRoutes(api) // public endpoints
+	credentialsHandler.RegisterRoutes(protected)
 
 	// Start server
 	port := viper.GetString("server.port")

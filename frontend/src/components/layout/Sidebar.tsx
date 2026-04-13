@@ -6,7 +6,7 @@ import { usePathname, Link } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 import {
   LayoutDashboard, Brain, LineChart, Store, Bot,
-  Wallet, User, Crown, Shield, HelpCircle,
+  Wallet, User, Crown, Shield, HelpCircle, TrendingUp,
 } from 'lucide-react';
 import { useSidebarStore } from '@/stores/sidebar';
 
@@ -17,6 +17,7 @@ const mainNavItems = [
   { key: 'indicatorMarket', href: '/indicator-market', icon: Store },
   { key: 'trading', href: '/trading', icon: Bot },
   { key: 'portfolio', href: '/portfolio', icon: Wallet },
+  { key: 'polymarket', href: '/polymarket', icon: TrendingUp },
   { key: 'profile', href: '/profile', icon: User },
   { key: 'membership', href: '/membership', icon: Crown },
   { key: 'admin', href: '/admin', icon: Shield },
