@@ -1,8 +1,6 @@
 package auth
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
 	"github.com/louqiang1982/CryptoHub/backend-go/pkg/response"
 )

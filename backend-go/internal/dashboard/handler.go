@@ -37,7 +37,7 @@ func (h *Handler) GetDashboardStats(c *gin.Context) {
 }
 
 func (h *Handler) GetPortfolioOverview(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	_, exists := c.Get("user_id")
 	if !exists {
 		response.Unauthorized(c, "User not authenticated")
 		return
@@ -51,7 +51,7 @@ func (h *Handler) GetPortfolioOverview(c *gin.Context) {
 }
 
 func (h *Handler) GetRecentActivity(c *gin.Context) {
-	userID, exists := c.Get("user_id")
+	_, exists := c.Get("user_id")
 	if !exists {
 		response.Unauthorized(c, "User not authenticated")
 		return
