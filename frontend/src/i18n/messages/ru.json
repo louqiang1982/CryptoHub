@@ -221,6 +221,8 @@
     "password": "Пароль",
     "confirmPassword": "Подтвердите пароль",
     "forgotPassword": "Забыли пароль?",
+    "invalidCredentials": "Неверный адрес электронной почты или пароль",
+    "unexpectedError": "Произошла непредвиденная ошибка",
     "rememberMe": "Запомнить меня",
     "loginWith": "Войти через {provider}",
     "noAccount": "Нет аккаунта?",

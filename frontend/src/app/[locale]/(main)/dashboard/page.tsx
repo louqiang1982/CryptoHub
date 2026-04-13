@@ -2,6 +2,12 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, TrendingDown, DollarSign, Target, Activity, Zap } from 'lucide-react';
+import dynamic from 'next/dynamic';
+
+const ProfitCalendarChart = dynamic(() => import('@/components/charts/ProfitCalendarChart'), { ssr: false });
+const StrategyDistributionChart = dynamic(() => import('@/components/charts/StrategyDistributionChart'), { ssr: false });
+const DrawdownCurveChart = dynamic(() => import('@/components/charts/DrawdownCurveChart'), { ssr: false });
+const TradingHoursHeatmap = dynamic(() => import('@/components/charts/TradingHoursHeatmap'), { ssr: false });
 
 export default async function DashboardPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -56,9 +62,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
             <CardDescription>Monthly performance overview</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="h-[300px] flex items-center justify-center text-[hsl(var(--muted-foreground))]">
-              Profit Calendar Chart Placeholder
-            </div>
+            <ProfitCalendarChart />
           </CardContent>
         </Card>
 
@@ -68,9 +72,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
             <CardDescription>Active strategy breakdown</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="h-[300px] flex items-center justify-center text-[hsl(var(--muted-foreground))]">
-              Strategy Distribution Chart Placeholder
-            </div>
+            <StrategyDistributionChart />
           </CardContent>
         </Card>
 
@@ -80,9 +82,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
             <CardDescription>Risk management overview</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="h-[300px] flex items-center justify-center text-[hsl(var(--muted-foreground))]">
-              Drawdown Curve Chart Placeholder
-            </div>
+            <DrawdownCurveChart />
           </CardContent>
         </Card>
 
@@ -92,9 +92,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
             <CardDescription>Best performance times</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="h-[300px] flex items-center justify-center text-[hsl(var(--muted-foreground))]">
-              Trading Hours Heatmap Placeholder
-            </div>
+            <TradingHoursHeatmap />
           </CardContent>
         </Card>
       </div>

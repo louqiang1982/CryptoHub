@@ -35,6 +35,7 @@ import (
 	"github.com/louqiang1982/CryptoHub/backend/go/internal/admin"
 	"github.com/louqiang1982/CryptoHub/backend/go/internal/community"
 	"github.com/louqiang1982/CryptoHub/backend/go/internal/credentials"
+	"github.com/louqiang1982/CryptoHub/backend/go/internal/trading/risk"
 	"github.com/louqiang1982/CryptoHub/backend/go/pkg/middleware"
 )
 
@@ -108,6 +109,9 @@ func main() {
 	adminHandler := admin.NewHandler(adminService)
 
 	communityHandler := community.NewHandler(db)
+
+	riskEngine := risk.NewEngine(db, rdb, logger)
+	riskHandler := risk.NewHandler(riskEngine)
 	globalMarketHandler := global.NewHandler()
 
 	encryptKey := viper.GetString("credentials.encrypt_key")
@@ -169,6 +173,7 @@ func main() {
 	communityHandler.RegisterRoutes(protected)
 	globalMarketHandler.RegisterRoutes(api) // public endpoints
 	credentialsHandler.RegisterRoutes(protected)
+	riskHandler.RegisterRoutes(protected)
 
 	// Start server
 	port := viper.GetString("server.port")

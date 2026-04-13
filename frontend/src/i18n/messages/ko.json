@@ -221,6 +221,8 @@
     "password": "비밀번호",
     "confirmPassword": "비밀번호 확인",
     "forgotPassword": "비밀번호를 잊으셨나요?",
+    "invalidCredentials": "이메일 또는 비밀번호가 잘못되었습니다",
+    "unexpectedError": "예상치 못한 오류가 발생했습니다",
     "rememberMe": "로그인 유지",
     "loginWith": "{provider}로 로그인",
     "noAccount": "계정이 없으신가요?",

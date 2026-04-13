@@ -2,9 +2,12 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
-  BarChart3, LineChart, TrendingUp, Maximize2, 
+  LineChart, TrendingUp, Maximize2, 
   Settings, PaintBucket, Layers, Zap 
 } from 'lucide-react';
+import dynamic from 'next/dynamic';
+
+const KLineChart = dynamic(() => import('@/components/charts/KLineChart'), { ssr: false });
 
 export default async function IndicatorPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -43,13 +46,7 @@ export default async function IndicatorPage({ params }: { params: Promise<{ loca
               </div>
             </CardHeader>
             <CardContent>
-              <div className="h-[500px] flex items-center justify-center border border-[hsl(var(--border))] rounded-lg text-[hsl(var(--muted-foreground))]">
-                <div className="text-center">
-                  <BarChart3 className="h-16 w-16 mx-auto mb-4 opacity-50" />
-                  <p>KLineChart Component Placeholder</p>
-                  <p className="text-sm">Advanced candlestick chart with technical indicators</p>
-                </div>
-              </div>
+              <KLineChart symbol="BTC/USDT" interval="1H" />
             </CardContent>
           </Card>
 

@@ -221,6 +221,8 @@
     "password": "密碼",
     "confirmPassword": "確認密碼",
     "forgotPassword": "忘記密碼？",
+    "invalidCredentials": "電子郵件或密碼無效",
+    "unexpectedError": "發生了意外錯誤",
     "rememberMe": "記住我",
     "loginWith": "使用 {provider} 登入",
     "noAccount": "還沒有帳號？",

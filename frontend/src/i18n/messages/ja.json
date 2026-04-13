@@ -221,6 +221,8 @@
     "password": "パスワード",
     "confirmPassword": "パスワード確認",
     "forgotPassword": "パスワードをお忘れですか？",
+    "invalidCredentials": "メールアドレスまたはパスワードが無効です",
+    "unexpectedError": "予期しないエラーが発生しました",
     "rememberMe": "ログイン状態を保持",
     "loginWith": "{provider}でログイン",
     "noAccount": "アカウントをお持ちでないですか？",

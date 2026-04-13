@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package cryptohub;
+
+option go_package = "github.com/louqiang1982/CryptoHub/backend/go/proto/pb";
+
+// AnalysisService provides AI-powered market analysis.
+service AnalysisService {
+  // GetAnalysis returns AI analysis for a given symbol and timeframe.
+  rpc GetAnalysis(AnalysisReq) returns (AnalysisResp);
+  // StreamAnalysis provides streaming analysis updates.
+  rpc StreamAnalysis(AnalysisReq) returns (stream AnalysisResp);
+}
+
+message AnalysisReq {
+  string symbol = 1;
+  string timeframe = 2;
+  repeated string indicators = 3;
+}
+
+message AnalysisResp {
+  string symbol = 1;
+  string signal = 2;     // "buy", "sell", "neutral"
+  double confidence = 3; // 0.0 – 1.0
+  string summary = 4;
+  map<string, double> indicator_values = 5;
+  string timestamp = 6;
+}
