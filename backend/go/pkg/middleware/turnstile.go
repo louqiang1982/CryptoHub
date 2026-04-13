@@ -1,7 +1,9 @@
 package middleware
 
 import (
+	"bytes"
 	"encoding/json"
+	"io"
 	"net/http"
 	"strings"
 	"time"
@@ -35,13 +37,16 @@ func Turnstile(secretKey string) gin.HandlerFunc {
 		// Extract token from header or body
 		token := c.GetHeader("cf-turnstile-response")
 		if token == "" {
-			// Try to peek at JSON body for the token
-			type body struct {
-				TurnstileToken string `json:"turnstile_token"`
-			}
-			var b body
-			if err := c.ShouldBindJSON(&b); err == nil && b.TurnstileToken != "" {
-				token = b.TurnstileToken
+			// Read the body without consuming it so downstream handlers can still use it
+			bodyBytes, err := io.ReadAll(c.Request.Body)
+			if err == nil && len(bodyBytes) > 0 {
+				c.Request.Body = io.NopCloser(bytes.NewBuffer(bodyBytes))
+				var b struct {
+					TurnstileToken string `json:"turnstile_token"`
+				}
+				if json.Unmarshal(bodyBytes, &b) == nil && b.TurnstileToken != "" {
+					token = b.TurnstileToken
+				}
 			}
 		}
 

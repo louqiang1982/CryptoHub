@@ -28,7 +28,11 @@ func (h *Handler) CheckOrderRisk(c *gin.Context) {
 		return
 	}
 
-	userID, _ := c.Get("user_id")
+	userID, exists := c.Get("user_id")
+	if !exists {
+		response.Unauthorized(c, "User not authenticated")
+		return
+	}
 	req.UserID = userID.(string)
 
 	result, err := h.engine.CheckOrderRisk(c.Request.Context(), &req)
@@ -40,7 +44,11 @@ func (h *Handler) CheckOrderRisk(c *gin.Context) {
 }
 
 func (h *Handler) GetPortfolioRisk(c *gin.Context) {
-	userID, _ := c.Get("user_id")
+	userID, exists := c.Get("user_id")
+	if !exists {
+		response.Unauthorized(c, "User not authenticated")
+		return
+	}
 	portfolioID := c.Param("id")
 
 	report, err := h.engine.GetPortfolioRisk(c.Request.Context(), userID.(string), portfolioID)
@@ -52,13 +60,21 @@ func (h *Handler) GetPortfolioRisk(c *gin.Context) {
 }
 
 func (h *Handler) GetRiskConfig(c *gin.Context) {
-	userID, _ := c.Get("user_id")
+	userID, exists := c.Get("user_id")
+	if !exists {
+		response.Unauthorized(c, "User not authenticated")
+		return
+	}
 	config := h.engine.loadRiskConfig(c.Request.Context(), userID.(string))
 	response.Success(c, config)
 }
 
 func (h *Handler) UpdateRiskConfig(c *gin.Context) {
-	userID, _ := c.Get("user_id")
+	userID, exists := c.Get("user_id")
+	if !exists {
+		response.Unauthorized(c, "User not authenticated")
+		return
+	}
 
 	var config RiskConfig
 	if err := c.ShouldBindJSON(&config); err != nil {

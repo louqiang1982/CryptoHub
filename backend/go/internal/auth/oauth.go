@@ -40,7 +40,11 @@ func (s *Service) OAuthLogin(ctx context.Context, req *OAuthRequest) (*TokenPair
 	// No existing user — create a new one
 	username := req.Name
 	if username == "" {
-		username = req.Provider + "_" + req.ProviderID[:8]
+		pid := req.ProviderID
+		if len(pid) > 8 {
+			pid = pid[:8]
+		}
+		username = req.Provider + "_" + pid
 	}
 
 	// Ensure unique username
