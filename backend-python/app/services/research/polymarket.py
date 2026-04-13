@@ -101,7 +101,20 @@ class MarketAnalysis:
 
 
 class PolymarketService:
-    """Fetches and analyses Polymarket prediction markets."""
+    """Fetches and analyses Polymarket prediction markets.
+
+    Sentiment classification thresholds:
+    - ``BULLISH_THRESHOLD`` (0.60): When the leading outcome probability ≥ 60 %,
+      consensus leans strongly towards resolution, classified as bullish.
+    - ``BEARISH_THRESHOLD`` (0.40): When the probability ≤ 40 %, the market
+      leans against the outcome, classified as bearish.
+    - Between 40 % and 60 %: classified as neutral (market is undecided).
+    These thresholds mirror standard options-market convention where ±20 pp
+    from the 50 % midpoint represents a directional lean.
+    """
+
+    BULLISH_THRESHOLD: float = 0.60
+    BEARISH_THRESHOLD: float = 0.40
 
     def __init__(self, timeout: float = 15.0) -> None:
         self._client = httpx.AsyncClient(
@@ -168,12 +181,12 @@ class PolymarketService:
         for outcome, price in zip(market.outcomes, market.outcome_prices):
             probs[outcome] = round(price * 100, 2)
 
-        # Simple sentiment: if the first (usually "Yes") outcome > 60 % → bullish
+        # Simple sentiment: if the first (usually "Yes") outcome ≥ BULLISH_THRESHOLD → bullish
         first_price = market.outcome_prices[0] if market.outcome_prices else 0.5
-        if first_price >= 0.6:
+        if first_price >= self.BULLISH_THRESHOLD:
             sentiment = "bullish"
             confidence = first_price
-        elif first_price <= 0.4:
+        elif first_price <= self.BEARISH_THRESHOLD:
             sentiment = "bearish"
             confidence = 1 - first_price
         else:

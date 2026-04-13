@@ -6,6 +6,7 @@ major indices using Tencent's public finance API.  No API key required.
 
 from __future__ import annotations
 
+import json
 import logging
 from typing import Any
 
@@ -64,7 +65,6 @@ class TencentDataProvider(BaseDataProvider):
             text = resp.text
             # Response is JS assignment, strip prefix
             json_start = text.index("{")
-            import json
             data = json.loads(text[json_start:])
             day_data = (
                 data.get("data", {})

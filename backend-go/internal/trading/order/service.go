@@ -35,7 +35,7 @@ func (s *Service) CreateOrder(ctx context.Context, order *Order) (*Order, error)
 	}
 
 	// Get exchange adapter and submit order
-	adapter, err := s.factory.CreateAdapter(order.Exchange, "", "") // TODO: Get API keys from user settings
+	adapter, err := s.factory.CreateAdapter(order.Exchange, exchange.AdapterConfig{}) // TODO: Get API keys from user settings
 	if err != nil {
 		return nil, err
 	}
@@ -130,7 +130,7 @@ func (s *Service) CancelOrder(ctx context.Context, userID, orderID string) error
 	}
 
 	// Get exchange adapter and cancel order
-	adapter, err := s.factory.CreateAdapter(order.Exchange, "", "") // TODO: Get API keys from user settings
+	adapter, err := s.factory.CreateAdapter(order.Exchange, exchange.AdapterConfig{}) // TODO: Get API keys from user settings
 	if err != nil {
 		return err
 	}
