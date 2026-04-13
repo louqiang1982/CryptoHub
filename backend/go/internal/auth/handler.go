@@ -19,6 +19,7 @@ func (h *Handler) RegisterRoutes(r *gin.RouterGroup) {
 	auth.POST("/register", h.Register)
 	auth.POST("/refresh", h.RefreshToken)
 	auth.POST("/logout", h.Logout)
+	auth.POST("/oauth", h.OAuthLogin)
 	auth.GET("/profile", h.GetProfile)
 }
 
@@ -120,4 +121,20 @@ func (h *Handler) GetProfile(c *gin.Context) {
 	}
 
 	response.Success(c, profile)
+}
+
+func (h *Handler) OAuthLogin(c *gin.Context) {
+	var req OAuthRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		response.BadRequest(c, err.Error())
+		return
+	}
+
+	tokens, err := h.service.OAuthLogin(c.Request.Context(), &req)
+	if err != nil {
+		response.InternalError(c, "OAuth login failed")
+		return
+	}
+
+	response.Success(c, tokens)
 }
