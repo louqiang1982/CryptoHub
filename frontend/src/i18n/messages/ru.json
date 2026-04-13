@@ -34,7 +34,9 @@
     "settings": "Настройки",
     "logout": "Выйти",
     "login": "Войти",
-    "register": "Регистрация"
+    "register": "Регистрация",
+    "polymarket": "Рынок прогнозов",
+    "experiment": "Лаборатория"
   },
   "topbar": {
     "toggleSidebar": "Переключить боковую панель",
@@ -69,7 +71,8 @@
     "tradingHours": "Распределение торговых часов",
     "todayPnl": "Прибыль сегодня",
     "weekPnl": "Прибыль за неделю",
-    "monthPnl": "Прибыль за месяц"
+    "monthPnl": "Прибыль за месяц",
+    "vsLastMonth": "по сравнению с прошлым месяцем"
   },
   "aiAnalysis": {
     "title": "AI Анализ активов",
@@ -95,14 +98,28 @@
   "indicator": {
     "title": "Анализ индикаторов",
     "timeframes": {
-      "1m": "1м", "5m": "5м", "15m": "15м", "30m": "30м",
-      "1H": "1ч", "4H": "4ч", "1D": "1Д", "1W": "1Н"
+      "1m": "1м",
+      "5m": "5м",
+      "15m": "15м",
+      "30m": "30м",
+      "1H": "1ч",
+      "4H": "4ч",
+      "1D": "1Д",
+      "1W": "1Н"
     },
     "indicators": {
-      "SMA": "SMA", "EMA": "EMA", "RSI": "RSI", "MACD": "MACD",
-      "BB": "Полосы Боллинджера", "ATR": "ATR", "CCI": "CCI",
-      "WR": "Williams %R", "MFI": "MFI", "ADX": "ADX",
-      "OBV": "OBV", "KDJ": "KDJ"
+      "SMA": "SMA",
+      "EMA": "EMA",
+      "RSI": "RSI",
+      "MACD": "MACD",
+      "BB": "Полосы Боллинджера",
+      "ATR": "ATR",
+      "CCI": "CCI",
+      "WR": "Williams %R",
+      "MFI": "MFI",
+      "ADX": "ADX",
+      "OBV": "OBV",
+      "KDJ": "KDJ"
     },
     "drawingTools": "Инструменты рисования",
     "myIndicators": "Мои индикаторы",
@@ -140,8 +157,11 @@
       "paused": "Приостановлена"
     },
     "actions": {
-      "start": "Запуск", "stop": "Стоп", "pause": "Пауза",
-      "backtest": "Бэктест", "duplicate": "Дублировать"
+      "start": "Запуск",
+      "stop": "Стоп",
+      "pause": "Пауза",
+      "backtest": "Бэктест",
+      "duplicate": "Дублировать"
     }
   },
   "portfolio": {
@@ -216,5 +236,18 @@
     "unauthorized": "Не авторизован. Войдите в систему.",
     "notFound": "Не найдено.",
     "serverError": "Ошибка сервера. Попробуйте позже."
+  },
+  "polymarket": {
+    "title": "Рынок прогнозов",
+    "subtitle": "Polymarket — предсказательные рынки",
+    "trending": "Популярные рынки",
+    "searchPlaceholder": "Поиск рынков...",
+    "volume": "Объём",
+    "liquidity": "Ликвидность",
+    "endDate": "Завершается",
+    "yesOdds": "ДА",
+    "noOdds": "НЕТ",
+    "noMarkets": "Рынки не найдены",
+    "loading": "Загрузка рынков..."
   }
 }

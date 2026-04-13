@@ -41,7 +41,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
               <CardContent>
                 <div className="text-2xl font-bold">{stat.value}</div>
                 <p className={`text-xs ${isPositive ? 'text-green-600' : 'text-red-600'}`}>
-                  {stat.change} from last month
+                  {stat.change} {t('vsLastMonth')}
                 </p>
               </CardContent>
             </Card>

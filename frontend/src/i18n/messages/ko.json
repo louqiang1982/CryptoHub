@@ -34,7 +34,9 @@
     "settings": "설정",
     "logout": "로그아웃",
     "login": "로그인",
-    "register": "회원가입"
+    "register": "회원가입",
+    "polymarket": "예측 시장",
+    "experiment": "실험실"
   },
   "topbar": {
     "toggleSidebar": "사이드바 토글",
@@ -69,7 +71,8 @@
     "tradingHours": "거래 시간대 분포",
     "todayPnl": "오늘 손익",
     "weekPnl": "이번 주 손익",
-    "monthPnl": "이번 달 손익"
+    "monthPnl": "이번 달 손익",
+    "vsLastMonth": "전월 대비"
   },
   "aiAnalysis": {
     "title": "AI 자산 분석",
@@ -95,14 +98,28 @@
   "indicator": {
     "title": "지표 분석",
     "timeframes": {
-      "1m": "1분", "5m": "5분", "15m": "15분", "30m": "30분",
-      "1H": "1시간", "4H": "4시간", "1D": "일봉", "1W": "주봉"
+      "1m": "1분",
+      "5m": "5분",
+      "15m": "15분",
+      "30m": "30분",
+      "1H": "1시간",
+      "4H": "4시간",
+      "1D": "일봉",
+      "1W": "주봉"
     },
     "indicators": {
-      "SMA": "SMA", "EMA": "EMA", "RSI": "RSI", "MACD": "MACD",
-      "BB": "볼린저 밴드", "ATR": "ATR", "CCI": "CCI",
-      "WR": "윌리엄스 %R", "MFI": "MFI", "ADX": "ADX",
-      "OBV": "OBV", "KDJ": "KDJ"
+      "SMA": "SMA",
+      "EMA": "EMA",
+      "RSI": "RSI",
+      "MACD": "MACD",
+      "BB": "볼린저 밴드",
+      "ATR": "ATR",
+      "CCI": "CCI",
+      "WR": "윌리엄스 %R",
+      "MFI": "MFI",
+      "ADX": "ADX",
+      "OBV": "OBV",
+      "KDJ": "KDJ"
     },
     "drawingTools": "그리기 도구",
     "myIndicators": "내 지표",
@@ -140,8 +157,11 @@
       "paused": "일시 중지"
     },
     "actions": {
-      "start": "시작", "stop": "중지", "pause": "일시 중지",
-      "backtest": "백테스트", "duplicate": "복제"
+      "start": "시작",
+      "stop": "중지",
+      "pause": "일시 중지",
+      "backtest": "백테스트",
+      "duplicate": "복제"
     }
   },
   "portfolio": {
@@ -216,5 +236,18 @@
     "unauthorized": "인증되지 않았습니다. 로그인해 주세요.",
     "notFound": "찾을 수 없습니다.",
     "serverError": "서버 오류. 나중에 다시 시도해 주세요."
+  },
+  "polymarket": {
+    "title": "예측 시장",
+    "subtitle": "Polymarket 예측 시장",
+    "trending": "인기 시장",
+    "searchPlaceholder": "시장 검색...",
+    "volume": "거래량",
+    "liquidity": "유동성",
+    "endDate": "종료",
+    "yesOdds": "예",
+    "noOdds": "아니오",
+    "noMarkets": "시장을 찾을 수 없습니다",
+    "loading": "시장 로딩 중..."
   }
 }

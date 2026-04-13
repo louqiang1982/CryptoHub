@@ -34,7 +34,9 @@
     "settings": "Einstellungen",
     "logout": "Abmelden",
     "login": "Anmelden",
-    "register": "Registrieren"
+    "register": "Registrieren",
+    "polymarket": "Prognose-Markt",
+    "experiment": "Labor"
   },
   "topbar": {
     "toggleSidebar": "Seitenleiste umschalten",
@@ -69,7 +71,8 @@
     "tradingHours": "Handelszeiten-Verteilung",
     "todayPnl": "Heutiger Gewinn",
     "weekPnl": "Wochengewinn",
-    "monthPnl": "Monatsgewinn"
+    "monthPnl": "Monatsgewinn",
+    "vsLastMonth": "ggü. Vormonat"
   },
   "aiAnalysis": {
     "title": "KI-Vermögensanalyse",
@@ -95,14 +98,28 @@
   "indicator": {
     "title": "Indikator-Analyse",
     "timeframes": {
-      "1m": "1m", "5m": "5m", "15m": "15m", "30m": "30m",
-      "1H": "1H", "4H": "4H", "1D": "1T", "1W": "1W"
+      "1m": "1m",
+      "5m": "5m",
+      "15m": "15m",
+      "30m": "30m",
+      "1H": "1H",
+      "4H": "4H",
+      "1D": "1T",
+      "1W": "1W"
     },
     "indicators": {
-      "SMA": "SMA", "EMA": "EMA", "RSI": "RSI", "MACD": "MACD",
-      "BB": "Bollinger-Bänder", "ATR": "ATR", "CCI": "CCI",
-      "WR": "Williams %R", "MFI": "MFI", "ADX": "ADX",
-      "OBV": "OBV", "KDJ": "KDJ"
+      "SMA": "SMA",
+      "EMA": "EMA",
+      "RSI": "RSI",
+      "MACD": "MACD",
+      "BB": "Bollinger-Bänder",
+      "ATR": "ATR",
+      "CCI": "CCI",
+      "WR": "Williams %R",
+      "MFI": "MFI",
+      "ADX": "ADX",
+      "OBV": "OBV",
+      "KDJ": "KDJ"
     },
     "drawingTools": "Zeichenwerkzeuge",
     "myIndicators": "Meine Indikatoren",
@@ -140,8 +157,11 @@
       "paused": "Pausiert"
     },
     "actions": {
-      "start": "Starten", "stop": "Stoppen", "pause": "Pausieren",
-      "backtest": "Backtest", "duplicate": "Duplizieren"
+      "start": "Starten",
+      "stop": "Stoppen",
+      "pause": "Pausieren",
+      "backtest": "Backtest",
+      "duplicate": "Duplizieren"
     }
   },
   "portfolio": {
@@ -216,5 +236,18 @@
     "unauthorized": "Nicht autorisiert. Bitte anmelden.",
     "notFound": "Nicht gefunden.",
     "serverError": "Serverfehler. Bitte später erneut versuchen."
+  },
+  "polymarket": {
+    "title": "Prognose-Markt",
+    "subtitle": "Polymarket — Vorhersagemärkte",
+    "trending": "Beliebte Märkte",
+    "searchPlaceholder": "Märkte suchen...",
+    "volume": "Volumen",
+    "liquidity": "Liquidität",
+    "endDate": "Endet",
+    "yesOdds": "JA",
+    "noOdds": "NEIN",
+    "noMarkets": "Keine Märkte gefunden",
+    "loading": "Märkte werden geladen..."
   }
 }
