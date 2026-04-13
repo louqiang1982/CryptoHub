@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package cryptohub;
+
+option go_package = "github.com/louqiang1982/CryptoHub/backend/go/proto/pb";
+
+// IndicatorService calculates technical indicators.
+service IndicatorService {
+  // Calculate computes requested indicators for a symbol.
+  rpc Calculate(IndicatorReq) returns (IndicatorResp);
+  // BatchCalculate computes indicators for multiple symbols.
+  rpc BatchCalculate(BatchIndicatorReq) returns (BatchIndicatorResp);
+}
+
+message IndicatorParam {
+  string type = 1;     // e.g. "SMA", "RSI", "MACD"
+  int32 period = 2;
+  map<string, string> extra = 3;
+}
+
+message IndicatorReq {
+  string symbol = 1;
+  string interval = 2;  // e.g. "1H", "4H", "1D"
+  repeated IndicatorParam indicators = 3;
+  int32 limit = 4;       // number of data points
+}
+
+message IndicatorValue {
+  string type = 1;
+  repeated double values = 2;
+  map<string, string> metadata = 3;
+}
+
+message IndicatorResp {
+  string symbol = 1;
+  repeated IndicatorValue indicators = 2;
+  string timestamp = 3;
+}
+
+message BatchIndicatorReq {
+  repeated IndicatorReq requests = 1;
+}
+
+message BatchIndicatorResp {
+  repeated IndicatorResp results = 1;
+}

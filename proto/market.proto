@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package cryptohub;
+
+option go_package = "github.com/louqiang1982/CryptoHub/backend/go/proto/pb";
+
+// MarketDataService provides real-time and historical market data.
+service MarketDataService {
+  // GetKlines returns historical candlestick data.
+  rpc GetKlines(KlineReq) returns (KlineResp);
+  // SubscribeTicker provides streaming ticker updates.
+  rpc SubscribeTicker(TickerReq) returns (stream TickerUpdate);
+}
+
+message KlineReq {
+  string symbol = 1;
+  string interval = 2;
+  int32 limit = 3;
+  int64 start_time = 4;
+  int64 end_time = 5;
+}
+
+message Kline {
+  int64 timestamp = 1;
+  double open = 2;
+  double high = 3;
+  double low = 4;
+  double close = 5;
+  double volume = 6;
+}
+
+message KlineResp {
+  string symbol = 1;
+  string interval = 2;
+  repeated Kline klines = 3;
+}
+
+message TickerReq {
+  repeated string symbols = 1;
+}
+
+message TickerUpdate {
+  string symbol = 1;
+  double price = 2;
+  double change_24h = 3;
+  double volume_24h = 4;
+  int64 timestamp = 5;
+}
