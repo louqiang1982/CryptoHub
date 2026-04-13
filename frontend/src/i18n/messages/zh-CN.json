@@ -1,0 +1,220 @@
+{
+  "common": {
+    "appName": "CryptoHub",
+    "loading": "加载中...",
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "create": "创建",
+    "search": "搜索",
+    "filter": "筛选",
+    "refresh": "刷新",
+    "back": "返回",
+    "next": "下一步",
+    "confirm": "确认",
+    "close": "关闭",
+    "yes": "是",
+    "no": "否",
+    "noData": "暂无数据",
+    "error": "发生错误",
+    "success": "成功",
+    "comingSoon": "即将推出"
+  },
+  "nav": {
+    "dashboard": "仪表盘",
+    "aiAnalysis": "AI 分析",
+    "indicator": "指标分析",
+    "indicatorMarket": "指标市场",
+    "trading": "交易助手",
+    "portfolio": "投资组合",
+    "profile": "个人资料",
+    "membership": "会员",
+    "admin": "管理面板",
+    "settings": "设置",
+    "logout": "退出登录",
+    "login": "登录",
+    "register": "注册"
+  },
+  "topbar": {
+    "toggleSidebar": "切换侧边栏",
+    "notifications": "通知",
+    "noNotifications": "暂无新通知",
+    "language": "语言",
+    "theme": "主题",
+    "profile": "个人资料",
+    "logout": "退出登录"
+  },
+  "theme": {
+    "light": "浅色",
+    "dark": "深色",
+    "system": "跟随系统",
+    "title": "主题设置",
+    "mode": "外观模式",
+    "primaryColor": "主题色",
+    "customColor": "自定义颜色",
+    "presetColors": "预设颜色"
+  },
+  "dashboard": {
+    "title": "仪表盘",
+    "totalEquity": "总权益",
+    "winRate": "胜率",
+    "plRatio": "盈亏比",
+    "maxDrawdown": "最大回撤",
+    "totalTrades": "总交易数",
+    "runningStrategies": "运行中策略",
+    "profitCalendar": "收益日历",
+    "strategyDistribution": "策略分布",
+    "drawdownCurve": "回撤曲线",
+    "tradingHours": "交易时段分布",
+    "todayPnl": "今日盈亏",
+    "weekPnl": "本周盈亏",
+    "monthPnl": "本月盈亏"
+  },
+  "aiAnalysis": {
+    "title": "AI 资产分析",
+    "opportunityRadar": "AI 机会雷达",
+    "globalIndex": "全球指数",
+    "marketTabs": {
+      "crypto": "加密货币",
+      "commodities": "大宗商品",
+      "sectors": "行业板块",
+      "forex": "外汇"
+    },
+    "watchlist": "自选列表",
+    "startAnalysis": "开始 AI 分析",
+    "analyzing": "分析中...",
+    "confidence": "置信度",
+    "signal": "信号",
+    "buy": "买入",
+    "sell": "卖出",
+    "hold": "持有",
+    "addToWatchlist": "添加到自选",
+    "removeFromWatchlist": "从自选移除"
+  },
+  "indicator": {
+    "title": "指标分析",
+    "timeframes": {
+      "1m": "1分", "5m": "5分", "15m": "15分", "30m": "30分",
+      "1H": "1时", "4H": "4时", "1D": "日", "1W": "周"
+    },
+    "indicators": {
+      "SMA": "SMA", "EMA": "EMA", "RSI": "RSI", "MACD": "MACD",
+      "BB": "布林带", "ATR": "ATR", "CCI": "CCI",
+      "WR": "威廉指标", "MFI": "MFI", "ADX": "ADX",
+      "OBV": "OBV", "KDJ": "KDJ"
+    },
+    "drawingTools": "绘图工具",
+    "myIndicators": "我的指标",
+    "purchasedIndicators": "已购指标",
+    "quickTrade": "快捷交易",
+    "fullscreen": "全屏"
+  },
+  "indicatorMarket": {
+    "title": "指标市场",
+    "search": "搜索指标...",
+    "popular": "热门",
+    "newest": "最新",
+    "free": "免费",
+    "premium": "付费",
+    "install": "安装",
+    "installed": "已安装",
+    "price": "价格",
+    "rating": "评分",
+    "downloads": "下载量"
+  },
+  "trading": {
+    "title": "交易助手",
+    "strategyList": "策略列表",
+    "strategyDetail": "策略详情",
+    "createStrategy": "创建策略",
+    "groupBy": {
+      "strategy": "按策略",
+      "symbol": "按标的"
+    },
+    "emptyState": "暂无策略，创建您的第一个策略开始交易。",
+    "status": {
+      "running": "运行中",
+      "stopped": "已停止",
+      "error": "错误",
+      "paused": "已暂停"
+    },
+    "actions": {
+      "start": "启动", "stop": "停止", "pause": "暂停",
+      "backtest": "回测", "duplicate": "复制"
+    }
+  },
+  "portfolio": {
+    "title": "投资组合",
+    "overview": "概览",
+    "positions": "持仓",
+    "history": "交易历史",
+    "totalValue": "总价值",
+    "unrealizedPnl": "未实现盈亏",
+    "realizedPnl": "已实现盈亏",
+    "asset": "资产",
+    "quantity": "数量",
+    "avgPrice": "均价",
+    "currentPrice": "现价",
+    "pnl": "盈亏"
+  },
+  "profile": {
+    "title": "个人资料",
+    "personalInfo": "个人信息",
+    "apiKeys": "API 密钥管理",
+    "notifications": "通知设置",
+    "security": "安全设置",
+    "username": "用户名",
+    "email": "邮箱",
+    "changePassword": "修改密码",
+    "twoFactor": "两步验证",
+    "addApiKey": "添加 API 密钥",
+    "exchange": "交易所"
+  },
+  "membership": {
+    "title": "会员",
+    "currentPlan": "当前方案",
+    "upgrade": "升级",
+    "plans": {
+      "free": "免费版",
+      "pro": "专业版",
+      "enterprise": "企业版"
+    },
+    "billing": "账单",
+    "credits": "积分"
+  },
+  "admin": {
+    "title": "管理面板",
+    "users": "用户管理",
+    "roles": "角色管理",
+    "systemSettings": "系统设置",
+    "logs": "系统日志",
+    "totalUsers": "总用户数",
+    "activeUsers": "活跃用户",
+    "totalRevenue": "总收入",
+    "serverUptime": "服务器正常运行时间"
+  },
+  "auth": {
+    "login": "登录",
+    "register": "注册",
+    "email": "邮箱",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "forgotPassword": "忘记密码？",
+    "rememberMe": "记住我",
+    "loginWith": "使用 {provider} 登录",
+    "noAccount": "还没有账号？",
+    "hasAccount": "已有账号？",
+    "termsAgree": "我同意服务条款"
+  },
+  "errors": {
+    "required": "此字段为必填项",
+    "invalidEmail": "邮箱地址无效",
+    "passwordMinLength": "密码至少需要8个字符",
+    "passwordMismatch": "两次密码输入不一致",
+    "networkError": "网络错误，请重试。",
+    "unauthorized": "未授权，请登录。",
+    "notFound": "未找到。",
+    "serverError": "服务器错误，请稍后重试。"
+  }
+}

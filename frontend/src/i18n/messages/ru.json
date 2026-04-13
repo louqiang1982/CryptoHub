@@ -1,0 +1,220 @@
+{
+  "common": {
+    "appName": "CryptoHub",
+    "loading": "Загрузка...",
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "create": "Создать",
+    "search": "Поиск",
+    "filter": "Фильтр",
+    "refresh": "Обновить",
+    "back": "Назад",
+    "next": "Далее",
+    "confirm": "Подтвердить",
+    "close": "Закрыть",
+    "yes": "Да",
+    "no": "Нет",
+    "noData": "Нет данных",
+    "error": "Произошла ошибка",
+    "success": "Успешно",
+    "comingSoon": "Скоро"
+  },
+  "nav": {
+    "dashboard": "Панель управления",
+    "aiAnalysis": "AI Анализ",
+    "indicator": "Анализ индикаторов",
+    "indicatorMarket": "Маркет индикаторов",
+    "trading": "Торговый помощник",
+    "portfolio": "Портфель",
+    "profile": "Профиль",
+    "membership": "Подписка",
+    "admin": "Панель администратора",
+    "settings": "Настройки",
+    "logout": "Выйти",
+    "login": "Войти",
+    "register": "Регистрация"
+  },
+  "topbar": {
+    "toggleSidebar": "Переключить боковую панель",
+    "notifications": "Уведомления",
+    "noNotifications": "Нет новых уведомлений",
+    "language": "Язык",
+    "theme": "Тема",
+    "profile": "Профиль",
+    "logout": "Выйти"
+  },
+  "theme": {
+    "light": "Светлая",
+    "dark": "Тёмная",
+    "system": "Системная",
+    "title": "Настройки темы",
+    "mode": "Режим оформления",
+    "primaryColor": "Основной цвет",
+    "customColor": "Пользовательский цвет",
+    "presetColors": "Предустановленные цвета"
+  },
+  "dashboard": {
+    "title": "Панель управления",
+    "totalEquity": "Общий капитал",
+    "winRate": "Процент побед",
+    "plRatio": "Соотношение прибыли/убытка",
+    "maxDrawdown": "Максимальная просадка",
+    "totalTrades": "Всего сделок",
+    "runningStrategies": "Активные стратегии",
+    "profitCalendar": "Календарь прибыли",
+    "strategyDistribution": "Распределение стратегий",
+    "drawdownCurve": "Кривая просадки",
+    "tradingHours": "Распределение торговых часов",
+    "todayPnl": "Прибыль сегодня",
+    "weekPnl": "Прибыль за неделю",
+    "monthPnl": "Прибыль за месяц"
+  },
+  "aiAnalysis": {
+    "title": "AI Анализ активов",
+    "opportunityRadar": "Радар возможностей",
+    "globalIndex": "Мировые индексы",
+    "marketTabs": {
+      "crypto": "Криптовалюты",
+      "commodities": "Сырьё",
+      "sectors": "Секторы",
+      "forex": "Форекс"
+    },
+    "watchlist": "Избранное",
+    "startAnalysis": "Начать AI анализ",
+    "analyzing": "Анализ...",
+    "confidence": "Уверенность",
+    "signal": "Сигнал",
+    "buy": "Покупка",
+    "sell": "Продажа",
+    "hold": "Удержание",
+    "addToWatchlist": "Добавить в избранное",
+    "removeFromWatchlist": "Удалить из избранного"
+  },
+  "indicator": {
+    "title": "Анализ индикаторов",
+    "timeframes": {
+      "1m": "1м", "5m": "5м", "15m": "15м", "30m": "30м",
+      "1H": "1ч", "4H": "4ч", "1D": "1Д", "1W": "1Н"
+    },
+    "indicators": {
+      "SMA": "SMA", "EMA": "EMA", "RSI": "RSI", "MACD": "MACD",
+      "BB": "Полосы Боллинджера", "ATR": "ATR", "CCI": "CCI",
+      "WR": "Williams %R", "MFI": "MFI", "ADX": "ADX",
+      "OBV": "OBV", "KDJ": "KDJ"
+    },
+    "drawingTools": "Инструменты рисования",
+    "myIndicators": "Мои индикаторы",
+    "purchasedIndicators": "Купленные индикаторы",
+    "quickTrade": "Быстрая сделка",
+    "fullscreen": "Полный экран"
+  },
+  "indicatorMarket": {
+    "title": "Маркет индикаторов",
+    "search": "Поиск индикаторов...",
+    "popular": "Популярные",
+    "newest": "Новые",
+    "free": "Бесплатные",
+    "premium": "Премиум",
+    "install": "Установить",
+    "installed": "Установлено",
+    "price": "Цена",
+    "rating": "Рейтинг",
+    "downloads": "Загрузки"
+  },
+  "trading": {
+    "title": "Торговый помощник",
+    "strategyList": "Список стратегий",
+    "strategyDetail": "Детали стратегии",
+    "createStrategy": "Создать стратегию",
+    "groupBy": {
+      "strategy": "По стратегии",
+      "symbol": "По инструменту"
+    },
+    "emptyState": "Нет стратегий. Создайте первую стратегию для начала торговли.",
+    "status": {
+      "running": "Работает",
+      "stopped": "Остановлена",
+      "error": "Ошибка",
+      "paused": "Приостановлена"
+    },
+    "actions": {
+      "start": "Запуск", "stop": "Стоп", "pause": "Пауза",
+      "backtest": "Бэктест", "duplicate": "Дублировать"
+    }
+  },
+  "portfolio": {
+    "title": "Портфель",
+    "overview": "Обзор",
+    "positions": "Позиции",
+    "history": "История сделок",
+    "totalValue": "Общая стоимость",
+    "unrealizedPnl": "Нереализованная прибыль",
+    "realizedPnl": "Реализованная прибыль",
+    "asset": "Актив",
+    "quantity": "Количество",
+    "avgPrice": "Средняя цена",
+    "currentPrice": "Текущая цена",
+    "pnl": "Прибыль/Убыток"
+  },
+  "profile": {
+    "title": "Профиль",
+    "personalInfo": "Личная информация",
+    "apiKeys": "Управление API ключами",
+    "notifications": "Настройки уведомлений",
+    "security": "Безопасность",
+    "username": "Имя пользователя",
+    "email": "Email",
+    "changePassword": "Сменить пароль",
+    "twoFactor": "Двухфакторная аутентификация",
+    "addApiKey": "Добавить API ключ",
+    "exchange": "Биржа"
+  },
+  "membership": {
+    "title": "Подписка",
+    "currentPlan": "Текущий план",
+    "upgrade": "Обновить",
+    "plans": {
+      "free": "Бесплатный",
+      "pro": "Профессиональный",
+      "enterprise": "Корпоративный"
+    },
+    "billing": "Оплата",
+    "credits": "Кредиты"
+  },
+  "admin": {
+    "title": "Панель администратора",
+    "users": "Управление пользователями",
+    "roles": "Управление ролями",
+    "systemSettings": "Системные настройки",
+    "logs": "Системные журналы",
+    "totalUsers": "Всего пользователей",
+    "activeUsers": "Активные пользователи",
+    "totalRevenue": "Общая выручка",
+    "serverUptime": "Время работы сервера"
+  },
+  "auth": {
+    "login": "Войти",
+    "register": "Регистрация",
+    "email": "Email",
+    "password": "Пароль",
+    "confirmPassword": "Подтвердите пароль",
+    "forgotPassword": "Забыли пароль?",
+    "rememberMe": "Запомнить меня",
+    "loginWith": "Войти через {provider}",
+    "noAccount": "Нет аккаунта?",
+    "hasAccount": "Уже есть аккаунт?",
+    "termsAgree": "Я согласен с условиями использования"
+  },
+  "errors": {
+    "required": "Обязательное поле",
+    "invalidEmail": "Неверный адрес email",
+    "passwordMinLength": "Пароль должен содержать не менее 8 символов",
+    "passwordMismatch": "Пароли не совпадают",
+    "networkError": "Ошибка сети. Попробуйте ещё раз.",
+    "unauthorized": "Не авторизован. Войдите в систему.",
+    "notFound": "Не найдено.",
+    "serverError": "Ошибка сервера. Попробуйте позже."
+  }
+}

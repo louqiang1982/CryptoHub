@@ -1,0 +1,220 @@
+{
+  "common": {
+    "appName": "CryptoHub",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "refresh": "Refresh",
+    "back": "Back",
+    "next": "Next",
+    "confirm": "Confirm",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "noData": "No data available",
+    "error": "An error occurred",
+    "success": "Success",
+    "comingSoon": "Coming Soon"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "aiAnalysis": "AI Analysis",
+    "indicator": "Indicator Analysis",
+    "indicatorMarket": "Indicator Market",
+    "trading": "Trading Assistant",
+    "portfolio": "Portfolio",
+    "profile": "Profile",
+    "membership": "Membership",
+    "admin": "Admin Panel",
+    "settings": "Settings",
+    "logout": "Logout",
+    "login": "Login",
+    "register": "Register"
+  },
+  "topbar": {
+    "toggleSidebar": "Toggle Sidebar",
+    "notifications": "Notifications",
+    "noNotifications": "No new notifications",
+    "language": "Language",
+    "theme": "Theme",
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "title": "Theme Settings",
+    "mode": "Appearance Mode",
+    "primaryColor": "Primary Color",
+    "customColor": "Custom Color",
+    "presetColors": "Preset Colors"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalEquity": "Total Equity",
+    "winRate": "Win Rate",
+    "plRatio": "P&L Ratio",
+    "maxDrawdown": "Max Drawdown",
+    "totalTrades": "Total Trades",
+    "runningStrategies": "Running Strategies",
+    "profitCalendar": "Profit Calendar",
+    "strategyDistribution": "Strategy Distribution",
+    "drawdownCurve": "Drawdown Curve",
+    "tradingHours": "Trading Hours Distribution",
+    "todayPnl": "Today's P&L",
+    "weekPnl": "This Week's P&L",
+    "monthPnl": "This Month's P&L"
+  },
+  "aiAnalysis": {
+    "title": "AI Asset Analysis",
+    "opportunityRadar": "AI Opportunity Radar",
+    "globalIndex": "Global Index",
+    "marketTabs": {
+      "crypto": "Crypto",
+      "commodities": "Commodities",
+      "sectors": "Sectors",
+      "forex": "Forex"
+    },
+    "watchlist": "Watchlist",
+    "startAnalysis": "Start AI Analysis",
+    "analyzing": "Analyzing...",
+    "confidence": "Confidence",
+    "signal": "Signal",
+    "buy": "Buy",
+    "sell": "Sell",
+    "hold": "Hold",
+    "addToWatchlist": "Add to Watchlist",
+    "removeFromWatchlist": "Remove from Watchlist"
+  },
+  "indicator": {
+    "title": "Indicator Analysis",
+    "timeframes": {
+      "1m": "1m", "5m": "5m", "15m": "15m", "30m": "30m",
+      "1H": "1H", "4H": "4H", "1D": "1D", "1W": "1W"
+    },
+    "indicators": {
+      "SMA": "SMA", "EMA": "EMA", "RSI": "RSI", "MACD": "MACD",
+      "BB": "Bollinger Bands", "ATR": "ATR", "CCI": "CCI",
+      "WR": "Williams %R", "MFI": "MFI", "ADX": "ADX",
+      "OBV": "OBV", "KDJ": "KDJ"
+    },
+    "drawingTools": "Drawing Tools",
+    "myIndicators": "My Indicators",
+    "purchasedIndicators": "Purchased Indicators",
+    "quickTrade": "Quick Trade",
+    "fullscreen": "Fullscreen"
+  },
+  "indicatorMarket": {
+    "title": "Indicator Market",
+    "search": "Search indicators...",
+    "popular": "Popular",
+    "newest": "Newest",
+    "free": "Free",
+    "premium": "Premium",
+    "install": "Install",
+    "installed": "Installed",
+    "price": "Price",
+    "rating": "Rating",
+    "downloads": "Downloads"
+  },
+  "trading": {
+    "title": "Trading Assistant",
+    "strategyList": "Strategy List",
+    "strategyDetail": "Strategy Detail",
+    "createStrategy": "Create Strategy",
+    "groupBy": {
+      "strategy": "By Strategy",
+      "symbol": "By Symbol"
+    },
+    "emptyState": "No strategies yet. Create your first strategy to get started.",
+    "status": {
+      "running": "Running",
+      "stopped": "Stopped",
+      "error": "Error",
+      "paused": "Paused"
+    },
+    "actions": {
+      "start": "Start", "stop": "Stop", "pause": "Pause",
+      "backtest": "Backtest", "duplicate": "Duplicate"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "overview": "Overview",
+    "positions": "Open Positions",
+    "history": "Trade History",
+    "totalValue": "Total Value",
+    "unrealizedPnl": "Unrealized P&L",
+    "realizedPnl": "Realized P&L",
+    "asset": "Asset",
+    "quantity": "Quantity",
+    "avgPrice": "Avg Price",
+    "currentPrice": "Current Price",
+    "pnl": "P&L"
+  },
+  "profile": {
+    "title": "Profile",
+    "personalInfo": "Personal Information",
+    "apiKeys": "API Key Management",
+    "notifications": "Notification Settings",
+    "security": "Security",
+    "username": "Username",
+    "email": "Email",
+    "changePassword": "Change Password",
+    "twoFactor": "Two-Factor Authentication",
+    "addApiKey": "Add API Key",
+    "exchange": "Exchange"
+  },
+  "membership": {
+    "title": "Membership",
+    "currentPlan": "Current Plan",
+    "upgrade": "Upgrade",
+    "plans": {
+      "free": "Free",
+      "pro": "Professional",
+      "enterprise": "Enterprise"
+    },
+    "billing": "Billing",
+    "credits": "Credits"
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "users": "User Management",
+    "roles": "Role Management",
+    "systemSettings": "System Settings",
+    "logs": "System Logs",
+    "totalUsers": "Total Users",
+    "activeUsers": "Active Users",
+    "totalRevenue": "Total Revenue",
+    "serverUptime": "Server Uptime"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Remember Me",
+    "loginWith": "Login with {provider}",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "termsAgree": "I agree to the Terms of Service"
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalidEmail": "Invalid email address",
+    "passwordMinLength": "Password must be at least 8 characters",
+    "passwordMismatch": "Passwords do not match",
+    "networkError": "Network error. Please try again.",
+    "unauthorized": "Unauthorized. Please login.",
+    "notFound": "Not found.",
+    "serverError": "Server error. Please try again later."
+  }
+}

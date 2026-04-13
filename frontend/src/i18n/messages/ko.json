@@ -1,0 +1,220 @@
+{
+  "common": {
+    "appName": "CryptoHub",
+    "loading": "로딩 중...",
+    "save": "저장",
+    "cancel": "취소",
+    "delete": "삭제",
+    "edit": "편집",
+    "create": "생성",
+    "search": "검색",
+    "filter": "필터",
+    "refresh": "새로고침",
+    "back": "뒤로",
+    "next": "다음",
+    "confirm": "확인",
+    "close": "닫기",
+    "yes": "예",
+    "no": "아니오",
+    "noData": "데이터가 없습니다",
+    "error": "오류가 발생했습니다",
+    "success": "성공",
+    "comingSoon": "곧 출시"
+  },
+  "nav": {
+    "dashboard": "대시보드",
+    "aiAnalysis": "AI 분석",
+    "indicator": "지표 분석",
+    "indicatorMarket": "지표 마켓",
+    "trading": "트레이딩 어시스턴트",
+    "portfolio": "포트폴리오",
+    "profile": "프로필",
+    "membership": "멤버십",
+    "admin": "관리 패널",
+    "settings": "설정",
+    "logout": "로그아웃",
+    "login": "로그인",
+    "register": "회원가입"
+  },
+  "topbar": {
+    "toggleSidebar": "사이드바 토글",
+    "notifications": "알림",
+    "noNotifications": "새 알림이 없습니다",
+    "language": "언어",
+    "theme": "테마",
+    "profile": "프로필",
+    "logout": "로그아웃"
+  },
+  "theme": {
+    "light": "라이트",
+    "dark": "다크",
+    "system": "시스템",
+    "title": "테마 설정",
+    "mode": "외관 모드",
+    "primaryColor": "주요 색상",
+    "customColor": "사용자 정의 색상",
+    "presetColors": "프리셋 색상"
+  },
+  "dashboard": {
+    "title": "대시보드",
+    "totalEquity": "총 자산",
+    "winRate": "승률",
+    "plRatio": "손익비",
+    "maxDrawdown": "최대 낙폭",
+    "totalTrades": "총 거래 수",
+    "runningStrategies": "실행 중 전략",
+    "profitCalendar": "수익 캘린더",
+    "strategyDistribution": "전략 분포",
+    "drawdownCurve": "낙폭 곡선",
+    "tradingHours": "거래 시간대 분포",
+    "todayPnl": "오늘 손익",
+    "weekPnl": "이번 주 손익",
+    "monthPnl": "이번 달 손익"
+  },
+  "aiAnalysis": {
+    "title": "AI 자산 분석",
+    "opportunityRadar": "AI 기회 레이더",
+    "globalIndex": "글로벌 지수",
+    "marketTabs": {
+      "crypto": "암호화폐",
+      "commodities": "원자재",
+      "sectors": "섹터",
+      "forex": "외환"
+    },
+    "watchlist": "관심 목록",
+    "startAnalysis": "AI 분석 시작",
+    "analyzing": "분석 중...",
+    "confidence": "신뢰도",
+    "signal": "신호",
+    "buy": "매수",
+    "sell": "매도",
+    "hold": "보유",
+    "addToWatchlist": "관심 목록에 추가",
+    "removeFromWatchlist": "관심 목록에서 제거"
+  },
+  "indicator": {
+    "title": "지표 분석",
+    "timeframes": {
+      "1m": "1분", "5m": "5분", "15m": "15분", "30m": "30분",
+      "1H": "1시간", "4H": "4시간", "1D": "일봉", "1W": "주봉"
+    },
+    "indicators": {
+      "SMA": "SMA", "EMA": "EMA", "RSI": "RSI", "MACD": "MACD",
+      "BB": "볼린저 밴드", "ATR": "ATR", "CCI": "CCI",
+      "WR": "윌리엄스 %R", "MFI": "MFI", "ADX": "ADX",
+      "OBV": "OBV", "KDJ": "KDJ"
+    },
+    "drawingTools": "그리기 도구",
+    "myIndicators": "내 지표",
+    "purchasedIndicators": "구매한 지표",
+    "quickTrade": "빠른 거래",
+    "fullscreen": "전체 화면"
+  },
+  "indicatorMarket": {
+    "title": "지표 마켓",
+    "search": "지표 검색...",
+    "popular": "인기",
+    "newest": "최신",
+    "free": "무료",
+    "premium": "프리미엄",
+    "install": "설치",
+    "installed": "설치됨",
+    "price": "가격",
+    "rating": "평점",
+    "downloads": "다운로드"
+  },
+  "trading": {
+    "title": "트레이딩 어시스턴트",
+    "strategyList": "전략 목록",
+    "strategyDetail": "전략 상세",
+    "createStrategy": "전략 생성",
+    "groupBy": {
+      "strategy": "전략별",
+      "symbol": "종목별"
+    },
+    "emptyState": "전략이 없습니다. 첫 번째 전략을 만들어 거래를 시작하세요.",
+    "status": {
+      "running": "실행 중",
+      "stopped": "중지됨",
+      "error": "오류",
+      "paused": "일시 중지"
+    },
+    "actions": {
+      "start": "시작", "stop": "중지", "pause": "일시 중지",
+      "backtest": "백테스트", "duplicate": "복제"
+    }
+  },
+  "portfolio": {
+    "title": "포트폴리오",
+    "overview": "개요",
+    "positions": "포지션",
+    "history": "거래 내역",
+    "totalValue": "총 가치",
+    "unrealizedPnl": "미실현 손익",
+    "realizedPnl": "실현 손익",
+    "asset": "자산",
+    "quantity": "수량",
+    "avgPrice": "평균 가격",
+    "currentPrice": "현재 가격",
+    "pnl": "손익"
+  },
+  "profile": {
+    "title": "프로필",
+    "personalInfo": "개인 정보",
+    "apiKeys": "API 키 관리",
+    "notifications": "알림 설정",
+    "security": "보안",
+    "username": "사용자 이름",
+    "email": "이메일",
+    "changePassword": "비밀번호 변경",
+    "twoFactor": "2단계 인증",
+    "addApiKey": "API 키 추가",
+    "exchange": "거래소"
+  },
+  "membership": {
+    "title": "멤버십",
+    "currentPlan": "현재 플랜",
+    "upgrade": "업그레이드",
+    "plans": {
+      "free": "무료",
+      "pro": "프로",
+      "enterprise": "엔터프라이즈"
+    },
+    "billing": "결제",
+    "credits": "크레딧"
+  },
+  "admin": {
+    "title": "관리 패널",
+    "users": "사용자 관리",
+    "roles": "역할 관리",
+    "systemSettings": "시스템 설정",
+    "logs": "시스템 로그",
+    "totalUsers": "총 사용자 수",
+    "activeUsers": "활성 사용자",
+    "totalRevenue": "총 수익",
+    "serverUptime": "서버 가동 시간"
+  },
+  "auth": {
+    "login": "로그인",
+    "register": "회원가입",
+    "email": "이메일",
+    "password": "비밀번호",
+    "confirmPassword": "비밀번호 확인",
+    "forgotPassword": "비밀번호를 잊으셨나요?",
+    "rememberMe": "로그인 유지",
+    "loginWith": "{provider}로 로그인",
+    "noAccount": "계정이 없으신가요?",
+    "hasAccount": "이미 계정이 있으신가요?",
+    "termsAgree": "이용약관에 동의합니다"
+  },
+  "errors": {
+    "required": "필수 입력 항목입니다",
+    "invalidEmail": "유효하지 않은 이메일 주소입니다",
+    "passwordMinLength": "비밀번호는 최소 8자 이상이어야 합니다",
+    "passwordMismatch": "비밀번호가 일치하지 않습니다",
+    "networkError": "네트워크 오류. 다시 시도해 주세요.",
+    "unauthorized": "인증되지 않았습니다. 로그인해 주세요.",
+    "notFound": "찾을 수 없습니다.",
+    "serverError": "서버 오류. 나중에 다시 시도해 주세요."
+  }
+}

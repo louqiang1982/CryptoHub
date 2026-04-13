@@ -1,0 +1,220 @@
+{
+  "common": {
+    "appName": "CryptoHub",
+    "loading": "Laden...",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "create": "Erstellen",
+    "search": "Suchen",
+    "filter": "Filter",
+    "refresh": "Aktualisieren",
+    "back": "Zurück",
+    "next": "Weiter",
+    "confirm": "Bestätigen",
+    "close": "Schließen",
+    "yes": "Ja",
+    "no": "Nein",
+    "noData": "Keine Daten verfügbar",
+    "error": "Ein Fehler ist aufgetreten",
+    "success": "Erfolgreich",
+    "comingSoon": "Demnächst"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "aiAnalysis": "KI-Analyse",
+    "indicator": "Indikator-Analyse",
+    "indicatorMarket": "Indikator-Markt",
+    "trading": "Trading-Assistent",
+    "portfolio": "Portfolio",
+    "profile": "Profil",
+    "membership": "Mitgliedschaft",
+    "admin": "Admin-Panel",
+    "settings": "Einstellungen",
+    "logout": "Abmelden",
+    "login": "Anmelden",
+    "register": "Registrieren"
+  },
+  "topbar": {
+    "toggleSidebar": "Seitenleiste umschalten",
+    "notifications": "Benachrichtigungen",
+    "noNotifications": "Keine neuen Benachrichtigungen",
+    "language": "Sprache",
+    "theme": "Design",
+    "profile": "Profil",
+    "logout": "Abmelden"
+  },
+  "theme": {
+    "light": "Hell",
+    "dark": "Dunkel",
+    "system": "System",
+    "title": "Design-Einstellungen",
+    "mode": "Erscheinungsbild",
+    "primaryColor": "Primärfarbe",
+    "customColor": "Benutzerdefinierte Farbe",
+    "presetColors": "Voreingestellte Farben"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalEquity": "Gesamtkapital",
+    "winRate": "Gewinnrate",
+    "plRatio": "Gewinn/Verlust-Verhältnis",
+    "maxDrawdown": "Maximaler Drawdown",
+    "totalTrades": "Gesamttrades",
+    "runningStrategies": "Laufende Strategien",
+    "profitCalendar": "Gewinnkalender",
+    "strategyDistribution": "Strategieverteilung",
+    "drawdownCurve": "Drawdown-Kurve",
+    "tradingHours": "Handelszeiten-Verteilung",
+    "todayPnl": "Heutiger Gewinn",
+    "weekPnl": "Wochengewinn",
+    "monthPnl": "Monatsgewinn"
+  },
+  "aiAnalysis": {
+    "title": "KI-Vermögensanalyse",
+    "opportunityRadar": "KI-Chancenradar",
+    "globalIndex": "Globale Indizes",
+    "marketTabs": {
+      "crypto": "Krypto",
+      "commodities": "Rohstoffe",
+      "sectors": "Sektoren",
+      "forex": "Forex"
+    },
+    "watchlist": "Watchlist",
+    "startAnalysis": "KI-Analyse starten",
+    "analyzing": "Analysiere...",
+    "confidence": "Konfidenz",
+    "signal": "Signal",
+    "buy": "Kaufen",
+    "sell": "Verkaufen",
+    "hold": "Halten",
+    "addToWatchlist": "Zur Watchlist hinzufügen",
+    "removeFromWatchlist": "Von Watchlist entfernen"
+  },
+  "indicator": {
+    "title": "Indikator-Analyse",
+    "timeframes": {
+      "1m": "1m", "5m": "5m", "15m": "15m", "30m": "30m",
+      "1H": "1H", "4H": "4H", "1D": "1T", "1W": "1W"
+    },
+    "indicators": {
+      "SMA": "SMA", "EMA": "EMA", "RSI": "RSI", "MACD": "MACD",
+      "BB": "Bollinger-Bänder", "ATR": "ATR", "CCI": "CCI",
+      "WR": "Williams %R", "MFI": "MFI", "ADX": "ADX",
+      "OBV": "OBV", "KDJ": "KDJ"
+    },
+    "drawingTools": "Zeichenwerkzeuge",
+    "myIndicators": "Meine Indikatoren",
+    "purchasedIndicators": "Gekaufte Indikatoren",
+    "quickTrade": "Schnellhandel",
+    "fullscreen": "Vollbild"
+  },
+  "indicatorMarket": {
+    "title": "Indikator-Markt",
+    "search": "Indikatoren suchen...",
+    "popular": "Beliebt",
+    "newest": "Neueste",
+    "free": "Kostenlos",
+    "premium": "Premium",
+    "install": "Installieren",
+    "installed": "Installiert",
+    "price": "Preis",
+    "rating": "Bewertung",
+    "downloads": "Downloads"
+  },
+  "trading": {
+    "title": "Trading-Assistent",
+    "strategyList": "Strategieliste",
+    "strategyDetail": "Strategiedetails",
+    "createStrategy": "Strategie erstellen",
+    "groupBy": {
+      "strategy": "Nach Strategie",
+      "symbol": "Nach Symbol"
+    },
+    "emptyState": "Keine Strategien. Erstellen Sie Ihre erste Strategie.",
+    "status": {
+      "running": "Läuft",
+      "stopped": "Gestoppt",
+      "error": "Fehler",
+      "paused": "Pausiert"
+    },
+    "actions": {
+      "start": "Starten", "stop": "Stoppen", "pause": "Pausieren",
+      "backtest": "Backtest", "duplicate": "Duplizieren"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "overview": "Übersicht",
+    "positions": "Positionen",
+    "history": "Handelshistorie",
+    "totalValue": "Gesamtwert",
+    "unrealizedPnl": "Unrealisierter Gewinn",
+    "realizedPnl": "Realisierter Gewinn",
+    "asset": "Anlage",
+    "quantity": "Menge",
+    "avgPrice": "Durchschnittspreis",
+    "currentPrice": "Aktueller Preis",
+    "pnl": "Gewinn/Verlust"
+  },
+  "profile": {
+    "title": "Profil",
+    "personalInfo": "Persönliche Informationen",
+    "apiKeys": "API-Schlüssel-Verwaltung",
+    "notifications": "Benachrichtigungseinstellungen",
+    "security": "Sicherheit",
+    "username": "Benutzername",
+    "email": "E-Mail",
+    "changePassword": "Passwort ändern",
+    "twoFactor": "Zwei-Faktor-Authentifizierung",
+    "addApiKey": "API-Schlüssel hinzufügen",
+    "exchange": "Börse"
+  },
+  "membership": {
+    "title": "Mitgliedschaft",
+    "currentPlan": "Aktueller Plan",
+    "upgrade": "Upgrade",
+    "plans": {
+      "free": "Kostenlos",
+      "pro": "Professionell",
+      "enterprise": "Enterprise"
+    },
+    "billing": "Abrechnung",
+    "credits": "Guthaben"
+  },
+  "admin": {
+    "title": "Admin-Panel",
+    "users": "Benutzerverwaltung",
+    "roles": "Rollenverwaltung",
+    "systemSettings": "Systemeinstellungen",
+    "logs": "Systemprotokolle",
+    "totalUsers": "Gesamtbenutzer",
+    "activeUsers": "Aktive Benutzer",
+    "totalRevenue": "Gesamtumsatz",
+    "serverUptime": "Server-Betriebszeit"
+  },
+  "auth": {
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "forgotPassword": "Passwort vergessen?",
+    "rememberMe": "Angemeldet bleiben",
+    "loginWith": "Mit {provider} anmelden",
+    "noAccount": "Kein Konto?",
+    "hasAccount": "Bereits ein Konto?",
+    "termsAgree": "Ich stimme den Nutzungsbedingungen zu"
+  },
+  "errors": {
+    "required": "Pflichtfeld",
+    "invalidEmail": "Ungültige E-Mail-Adresse",
+    "passwordMinLength": "Passwort muss mindestens 8 Zeichen lang sein",
+    "passwordMismatch": "Passwörter stimmen nicht überein",
+    "networkError": "Netzwerkfehler. Bitte erneut versuchen.",
+    "unauthorized": "Nicht autorisiert. Bitte anmelden.",
+    "notFound": "Nicht gefunden.",
+    "serverError": "Serverfehler. Bitte später erneut versuchen."
+  }
+}
