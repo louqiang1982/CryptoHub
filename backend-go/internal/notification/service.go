@@ -81,8 +81,12 @@ func (s *Service) CreateNotification(ctx context.Context, userID, notificationTy
 
 	var channelsJSON string
 	if len(channels) > 0 {
-		channelsBytes, _ := json.Marshal(channels)
-		channelsJSON = string(channelsBytes)
+		channelsBytes, err := json.Marshal(channels)
+		if err != nil {
+			channelsJSON = `["app"]`
+		} else {
+			channelsJSON = string(channelsBytes)
+		}
 	} else {
 		channelsJSON = `["app"]`
 	}
