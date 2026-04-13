@@ -1,8 +1,10 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import { dashboardApi } from '@/lib/api/client';
 
-const data = [
+const fallbackData = [
   { name: 'Trend Following', value: 35, color: '#3b82f6' },
   { name: 'Mean Reversion', value: 25, color: '#8b5cf6' },
   { name: 'Scalping', value: 20, color: '#06b6d4' },
@@ -10,7 +12,31 @@ const data = [
   { name: 'Grid Trading', value: 8, color: '#10b981' },
 ];
 
+interface StrategySlice {
+  name: string;
+  value: number;
+  color: string;
+}
+
 export default function StrategyDistributionChart() {
+  const [data, setData] = useState<StrategySlice[]>(fallbackData);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const resp = await dashboardApi.getStrategyDistribution('');
+        const items = resp?.data;
+        if (!cancelled && Array.isArray(items) && items.length > 0) {
+          setData(items);
+        }
+      } catch {
+        // keep fallback data
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
   return (
     <ResponsiveContainer width="100%" height={280}>
       <PieChart>

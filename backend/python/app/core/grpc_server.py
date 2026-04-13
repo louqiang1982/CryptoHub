@@ -2,19 +2,31 @@
 gRPC server for CryptoHub Python backend.
 
 Exposes AI analysis, indicator calculation, and market data services to
-the Go backend over gRPC.  Proto-generated stubs are expected at
-``proto/`` alongside the ``.proto`` source files; however, until protoc
-code-gen is wired into the build, this module uses the reflection-free
-``grpc.aio`` server with hand-written servicers that directly
-serialise / deserialise protobuf-compatible dicts.
+the Go backend over gRPC using protoc-generated stubs located in the
+top-level ``proto/`` directory.
 """
 
+import sys
+import os
 import time
 import logging
 from typing import Any, Dict, List
 
 import grpc
 from concurrent import futures
+
+# Ensure the proto/ directory is on sys.path so generated _pb2 modules
+# can be imported.
+_PROTO_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "proto"))
+if _PROTO_DIR not in sys.path:
+    sys.path.insert(0, _PROTO_DIR)
+
+import analysis_pb2
+import analysis_pb2_grpc
+import indicator_pb2
+import indicator_pb2_grpc
+import market_pb2
+import market_pb2_grpc
 
 from app.core.config import settings
 
@@ -34,17 +46,17 @@ def _ts() -> str:
 # Analysis servicer
 # ---------------------------------------------------------------------------
 
-class AnalysisServicer:
+class AnalysisServicer(analysis_pb2_grpc.AnalysisServiceServicer):
     """Implements the AnalysisService RPC methods."""
 
     async def GetAnalysis(
         self,
-        request: Any,
+        request: analysis_pb2.AnalysisReq,
         context: grpc.aio.ServicerContext,
-    ) -> Dict[str, Any]:
+    ) -> analysis_pb2.AnalysisResp:
         """Return AI analysis for the requested symbol/timeframe."""
-        symbol = getattr(request, "symbol", "BTC/USDT")
-        timeframe = getattr(request, "timeframe", "1H")
+        symbol = request.symbol or "BTC/USDT"
+        timeframe = request.timeframe or "1H"
         logger.info("gRPC GetAnalysis: symbol=%s timeframe=%s", symbol, timeframe)
 
         # Delegate to the fast-analysis service when available
@@ -52,105 +64,114 @@ class AnalysisServicer:
             from app.services.ai.fast_analysis import FastAnalysisService
             svc = FastAnalysisService()
             result = await svc.analyze(symbol=symbol, timeframe=timeframe)
-            return {
-                "symbol": symbol,
-                "signal": result.get("signal", "neutral"),
-                "confidence": result.get("confidence", 0.5),
-                "summary": result.get("summary", ""),
-                "indicator_values": result.get("indicators", {}),
-                "timestamp": _ts(),
-            }
+            return analysis_pb2.AnalysisResp(
+                symbol=symbol,
+                signal=result.get("signal", "neutral"),
+                confidence=result.get("confidence", 0.5),
+                summary=result.get("summary", ""),
+                indicator_values={k: float(v) for k, v in result.get("indicators", {}).items()},
+                timestamp=_ts(),
+            )
         except Exception as exc:
             logger.warning("Fast analysis unavailable, returning placeholder: %s", exc)
-            return {
-                "symbol": symbol,
-                "signal": "neutral",
-                "confidence": 0.5,
-                "summary": f"Analysis pending for {symbol} on {timeframe}",
-                "indicator_values": {},
-                "timestamp": _ts(),
-            }
+            return analysis_pb2.AnalysisResp(
+                symbol=symbol,
+                signal="neutral",
+                confidence=0.5,
+                summary=f"Analysis pending for {symbol} on {timeframe}",
+                indicator_values={},
+                timestamp=_ts(),
+            )
+
+    async def StreamAnalysis(
+        self,
+        request: analysis_pb2.AnalysisReq,
+        context: grpc.aio.ServicerContext,
+    ):
+        """Provide streaming analysis updates (sends a single snapshot)."""
+        resp = await self.GetAnalysis(request, context)
+        yield resp
 
 
 # ---------------------------------------------------------------------------
 # Indicator servicer
 # ---------------------------------------------------------------------------
 
-class IndicatorServicer:
+class IndicatorServicer(indicator_pb2_grpc.IndicatorServiceServicer):
     """Implements the IndicatorService RPC methods."""
 
     async def Calculate(
         self,
-        request: Any,
+        request: indicator_pb2.IndicatorReq,
         context: grpc.aio.ServicerContext,
-    ) -> Dict[str, Any]:
+    ) -> indicator_pb2.IndicatorResp:
         """Calculate technical indicators for a symbol."""
-        symbol = getattr(request, "symbol", "BTC/USDT")
-        indicators_req: List[Any] = getattr(request, "indicators", [])
+        symbol = request.symbol or "BTC/USDT"
+        indicators_req = list(request.indicators)
         logger.info("gRPC Calculate: symbol=%s indicators=%d", symbol, len(indicators_req))
 
-        results: List[Dict[str, Any]] = []
+        results: List[indicator_pb2.IndicatorValue] = []
         try:
             from app.services.strategy.indicator_strategy import IndicatorCalculator
             calc = IndicatorCalculator()
             for ind in indicators_req:
-                ind_type = getattr(ind, "type", "SMA")
-                period = getattr(ind, "period", 14)
+                ind_type = ind.type or "SMA"
+                period = ind.period or 14
                 result = await calc.calculate(
                     symbol=symbol,
                     indicator_type=ind_type,
                     period=period,
                     params={},
                 )
-                results.append({
-                    "type": ind_type,
-                    "values": result.get("values", []) if isinstance(result, dict) else [],
-                    "metadata": {"period": str(period)},
-                })
+                values = result.get("values", []) if isinstance(result, dict) else []
+                results.append(indicator_pb2.IndicatorValue(
+                    type=ind_type,
+                    values=[float(v) for v in values],
+                    metadata={"period": str(period)},
+                ))
         except Exception as exc:
             logger.warning("Indicator calculation failed: %s", exc)
-            results.append({
-                "type": "error",
-                "values": [],
-                "metadata": {"error": str(exc)},
-            })
+            results.append(indicator_pb2.IndicatorValue(
+                type="error",
+                values=[],
+                metadata={"error": str(exc)},
+            ))
 
-        return {
-            "symbol": symbol,
-            "indicators": results,
-            "timestamp": _ts(),
-        }
+        return indicator_pb2.IndicatorResp(
+            symbol=symbol,
+            indicators=results,
+            timestamp=_ts(),
+        )
 
     async def BatchCalculate(
         self,
-        request: Any,
+        request: indicator_pb2.BatchIndicatorReq,
         context: grpc.aio.ServicerContext,
-    ) -> Dict[str, Any]:
+    ) -> indicator_pb2.BatchIndicatorResp:
         """Batch calculate indicators for multiple symbols."""
-        requests = getattr(request, "requests", [])
         results = []
-        for req in requests:
+        for req in request.requests:
             result = await self.Calculate(req, context)
             results.append(result)
-        return {"results": results}
+        return indicator_pb2.BatchIndicatorResp(results=results)
 
 
 # ---------------------------------------------------------------------------
 # Market data servicer
 # ---------------------------------------------------------------------------
 
-class MarketDataServicer:
+class MarketDataServicer(market_pb2_grpc.MarketDataServiceServicer):
     """Implements the MarketDataService RPC methods."""
 
     async def GetKlines(
         self,
-        request: Any,
+        request: market_pb2.KlineReq,
         context: grpc.aio.ServicerContext,
-    ) -> Dict[str, Any]:
+    ) -> market_pb2.KlineResp:
         """Return historical kline (candlestick) data."""
-        symbol = getattr(request, "symbol", "BTC/USDT")
-        interval = getattr(request, "interval", "1H")
-        limit = getattr(request, "limit", 100)
+        symbol = request.symbol or "BTC/USDT"
+        interval = request.interval or "1H"
+        limit = request.limit or 100
         logger.info("gRPC GetKlines: symbol=%s interval=%s limit=%d", symbol, interval, limit)
 
         try:
@@ -158,24 +179,39 @@ class MarketDataServicer:
             factory = DataProviderFactory()
             provider = factory.get_provider("crypto")
             klines = await provider.get_klines(symbol=symbol, interval=interval, limit=limit)
-            return {
-                "symbol": symbol,
-                "interval": interval,
-                "klines": [
-                    {
-                        "timestamp": int(k.get("timestamp", 0)),
-                        "open": float(k.get("open", 0)),
-                        "high": float(k.get("high", 0)),
-                        "low": float(k.get("low", 0)),
-                        "close": float(k.get("close", 0)),
-                        "volume": float(k.get("volume", 0)),
-                    }
+            return market_pb2.KlineResp(
+                symbol=symbol,
+                interval=interval,
+                klines=[
+                    market_pb2.Kline(
+                        timestamp=int(k.get("timestamp", 0)),
+                        open=float(k.get("open", 0)),
+                        high=float(k.get("high", 0)),
+                        low=float(k.get("low", 0)),
+                        close=float(k.get("close", 0)),
+                        volume=float(k.get("volume", 0)),
+                    )
                     for k in (klines or [])
                 ],
-            }
+            )
         except Exception as exc:
             logger.warning("Kline fetch failed: %s", exc)
-            return {"symbol": symbol, "interval": interval, "klines": []}
+            return market_pb2.KlineResp(symbol=symbol, interval=interval, klines=[])
+
+    async def SubscribeTicker(
+        self,
+        request: market_pb2.TickerReq,
+        context: grpc.aio.ServicerContext,
+    ):
+        """Provide streaming ticker updates (sends a single snapshot per symbol)."""
+        for sym in request.symbols:
+            yield market_pb2.TickerUpdate(
+                symbol=sym,
+                price=0.0,
+                change_24h=0.0,
+                volume_24h=0.0,
+                timestamp=int(time.time()),
+            )
 
 
 # ---------------------------------------------------------------------------
@@ -186,14 +222,9 @@ async def serve() -> None:
     """Start the gRPC server with all servicers registered."""
     server = grpc.aio.server(futures.ThreadPoolExecutor(max_workers=10))
 
-    # NOTE: Until proto stubs are generated, servicers are registered as
-    # generic handlers. Once stubs exist, replace with:
-    #   analysis_pb2_grpc.add_AnalysisServiceServicer_to_server(...)
-    #   indicator_pb2_grpc.add_IndicatorServiceServicer_to_server(...)
-    #   market_pb2_grpc.add_MarketDataServiceServicer_to_server(...)
-    _ = AnalysisServicer()
-    _ = IndicatorServicer()
-    _ = MarketDataServicer()
+    analysis_pb2_grpc.add_AnalysisServiceServicer_to_server(AnalysisServicer(), server)
+    indicator_pb2_grpc.add_IndicatorServiceServicer_to_server(IndicatorServicer(), server)
+    market_pb2_grpc.add_MarketDataServiceServicer_to_server(MarketDataServicer(), server)
 
     port = settings.GRPC_PORT
     server.add_insecure_port(f"[::]:{port}")

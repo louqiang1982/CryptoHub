@@ -1,13 +1,14 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import { dashboardApi } from '@/lib/api/client';
 
 interface DayData {
   date: string;
   profit: number;
 }
 
-// Generate sample month data
+// Generate fallback month data
 function generateMonthData(): DayData[] {
   const data: DayData[] = [];
   const now = new Date();
@@ -16,9 +17,10 @@ function generateMonthData(): DayData[] {
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   
   for (let d = 1; d <= daysInMonth; d++) {
+    const seed = Math.sin(d * 1.3) * 800 + Math.cos(d * 0.7) * 400;
     data.push({
       date: `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`,
-      profit: Math.round((Math.random() * 2000 - 800) * 100) / 100,
+      profit: Math.round(seed * 100) / 100,
     });
   }
   return data;
@@ -33,7 +35,25 @@ function getColor(value: number): string {
 }
 
 export default function ProfitCalendarChart() {
-  const data = useMemo(() => generateMonthData(), []);
+  const fallback = useMemo(() => generateMonthData(), []);
+  const [data, setData] = useState<DayData[]>(fallback);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const resp = await dashboardApi.getProfitCalendar('');
+        const items = resp?.data;
+        if (!cancelled && Array.isArray(items) && items.length > 0) {
+          setData(items);
+        }
+      } catch {
+        // keep fallback data
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
   const totalProfit = data.reduce((sum, d) => sum + d.profit, 0);
 
   return (

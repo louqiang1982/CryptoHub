@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import {
   AreaChart,
   Area,
@@ -9,18 +10,44 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+import { dashboardApi } from '@/lib/api/client';
 
-const data = Array.from({ length: 90 }, (_, i) => {
-  const date = new Date();
-  date.setDate(date.getDate() - (90 - i));
-  const drawdown = -(Math.random() * 12 * Math.sin(i / 10) ** 2);
-  return {
-    date: `${date.getMonth() + 1}/${date.getDate()}`,
-    drawdown: Number(drawdown.toFixed(2)),
-  };
-});
+function generateFallbackData() {
+  return Array.from({ length: 90 }, (_, i) => {
+    const date = new Date();
+    date.setDate(date.getDate() - (90 - i));
+    const drawdown = -(Math.abs(Math.sin(i / 10)) * 12 * Math.abs(Math.sin(i / 10)));
+    return {
+      date: `${date.getMonth() + 1}/${date.getDate()}`,
+      drawdown: Number(drawdown.toFixed(2)),
+    };
+  });
+}
+
+interface DrawdownPoint {
+  date: string;
+  drawdown: number;
+}
 
 export default function DrawdownCurveChart() {
+  const [data, setData] = useState<DrawdownPoint[]>(generateFallbackData);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const resp = await dashboardApi.getDrawdownCurve('');
+        const items = resp?.data;
+        if (!cancelled && Array.isArray(items) && items.length > 0) {
+          setData(items);
+        }
+      } catch {
+        // keep fallback data
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
   return (
     <ResponsiveContainer width="100%" height={280}>
       <AreaChart data={data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>

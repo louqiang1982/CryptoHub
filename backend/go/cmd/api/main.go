@@ -123,6 +123,9 @@ func main() {
 	// Setup Gin router
 	r := gin.New()
 
+	// Turnstile secret — empty string makes it a no-op (dev mode)
+	turnstileSecret := viper.GetString("security.turnstile.secret_key")
+
 	// Setup middleware
 	r.Use(gin.Recovery())
 	r.Use(middleware.Logger(logger))
@@ -144,15 +147,22 @@ func main() {
 	// API routes
 	api := r.Group("/api/v1")
 
-	// Public routes
-	authHandler.RegisterRoutes(api)
+	// Public routes with Turnstile verification on auth mutations
+	authGroup := api.Group("")
+	authGroup.Use(middleware.Turnstile(turnstileSecret))
+	authHandler.RegisterRoutes(authGroup)
 
 	// Protected routes
 	protected := api.Group("")
 	protected.Use(middleware.Auth(authService))
 
 	userHandler.RegisterRoutes(protected)
-	orderHandler.RegisterRoutes(protected)
+
+	// Order routes with Turnstile verification on mutations
+	tradingProtected := protected.Group("")
+	tradingProtected.Use(middleware.Turnstile(turnstileSecret))
+	orderHandler.RegisterRoutes(tradingProtected)
+
 	positionHandler.RegisterRoutes(protected)
 	portfolioHandler.RegisterRoutes(protected)
 	klineHandler.RegisterRoutes(protected)

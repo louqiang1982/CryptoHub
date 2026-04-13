@@ -64,6 +64,8 @@ security:
     allowed_origins: ["*"]
     allowed_methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
     allowed_headers: ["*"]
+  turnstile:
+    secret_key: ""  # Set via SECURITY_TURNSTILE_SECRET_KEY env var
 
 features:
   enable_paper_trading: true
