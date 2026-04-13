@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import asdict
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any
 
 import numpy as np
@@ -27,7 +27,7 @@ class BacktestReportService:
             "equity_curve": self._sampled_equity(result.equity_curve),
             "monthly_returns": self._monthly_returns(result),
             "drawdown_series": self._drawdown_series(result.equity_curve),
-            "generated_at": datetime.utcnow().isoformat(),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
         }
 
     # ------------------------------------------------------------------

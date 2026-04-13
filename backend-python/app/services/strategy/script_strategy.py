@@ -1,7 +1,7 @@
 """Event-driven script strategy with on_init/on_bar lifecycle."""
 
 from abc import ABC, abstractmethod
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any
 
 

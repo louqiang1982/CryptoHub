@@ -4,10 +4,8 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass, field
-from datetime import datetime
 from typing import Any
 
-import numpy as np
 
 from app.services.backtest.metrics import PerformanceMetrics, calculate_all
 from app.services.strategy.script_strategy import Bar
