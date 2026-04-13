@@ -1,11 +1,11 @@
 /**
- * API client layer — centralised HTTP client for all backend requests.
+ * API client layer — centralized HTTP client for all backend requests.
  *
  * Uses the native `fetch` API (available in Next.js 15 server/client
  * components) wrapped in a typed helper that handles:
  * - Base URL resolution (env-aware)
  * - Authorization header injection
- * - JSON serialisation / deserialisation
+ * - JSON serialization / deserialization
  * - Consistent error handling
  */
 
