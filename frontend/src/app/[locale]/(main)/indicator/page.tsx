@@ -3,11 +3,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { 
   LineChart, TrendingUp, Maximize2, 
-  Settings, PaintBucket, Layers, Zap 
+  Settings, PaintBucket, Layers, Zap, Calendar 
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 
 const KLineChart = dynamic(() => import('@/components/charts/KLineChart'), { ssr: false });
+const EconomicCalendar = dynamic(() => import('@/components/charts/EconomicCalendar'), { ssr: false });
+const QuickTradePanel = dynamic(() => import('@/components/charts/QuickTradePanel'), { ssr: false });
 
 export default async function IndicatorPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -67,6 +69,29 @@ export default async function IndicatorPage({ params }: { params: Promise<{ loca
         </div>
 
         <div className="space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>
+                <div className="flex items-center gap-2">
+                  <Calendar className="h-4 w-4" />
+                  {t('economicCalendar')}
+                </div>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <EconomicCalendar />
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>{t('quickTrade')}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <QuickTradePanel symbol="BTC/USDT" price={45230.50} />
+            </CardContent>
+          </Card>
+
           <Card>
             <CardHeader>
               <CardTitle>{t('drawingTools')}</CardTitle>
