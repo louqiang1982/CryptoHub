@@ -89,7 +89,7 @@ class ExperimentRunner:
 
     async def _run_backtest(self, config: ExperimentConfig) -> dict[str, Any]:
         from app.services.backtest.engine import BacktestEngine, BacktestConfig
-        from app.services.strategy.script_strategy import ScriptStrategy, Bar
+        from app.services.strategy.script_strategy import Bar
 
         engine = BacktestEngine(
             BacktestConfig(initial_capital=config.initial_capital)

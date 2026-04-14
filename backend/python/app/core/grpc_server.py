@@ -10,7 +10,7 @@ import sys
 import os
 import time
 import logging
-from typing import Any, Dict, List
+from typing import List
 
 import grpc
 from concurrent import futures
@@ -21,14 +21,14 @@ _PROTO_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", ".."
 if _PROTO_DIR not in sys.path:
     sys.path.insert(0, _PROTO_DIR)
 
-import analysis_pb2
-import analysis_pb2_grpc
-import indicator_pb2
-import indicator_pb2_grpc
-import market_pb2
-import market_pb2_grpc
+import analysis_pb2  # noqa: E402
+import analysis_pb2_grpc  # noqa: E402
+import indicator_pb2  # noqa: E402
+import indicator_pb2_grpc  # noqa: E402
+import market_pb2  # noqa: E402
+import market_pb2_grpc  # noqa: E402
 
-from app.core.config import settings
+from app.core.config import settings  # noqa: E402
 
 logger = logging.getLogger(__name__)
 
