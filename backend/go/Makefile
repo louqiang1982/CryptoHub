@@ -41,11 +41,11 @@ tidy:
 
 # Migrate database up
 migrate-up:
-	migrate -path migrations -database "postgres://cryptohub:password@localhost:5432/cryptohub?sslmode=disable" up
+	migrate -path migrations -database "$$DATABASE_URL" up
 
 # Migrate database down
 migrate-down:
-	migrate -path migrations -database "postgres://cryptohub:password@localhost:5432/cryptohub?sslmode=disable" down
+	migrate -path migrations -database "$$DATABASE_URL" down
 
 # Create new migration
 migrate-create:

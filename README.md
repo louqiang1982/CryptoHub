@@ -1,4 +1,4 @@
-# 📈 CryptoHub --- Crypto AI Trdading Platform
+# 📈 CryptoHub --- Crypto AI Trading Platform
 
 🌐 **Multi-Language Documentation**: [English](./docs/en/) | [中文简体](./docs/zh-CN/) | [中文繁體](./docs/zh-TW/) | [日本語](./docs/ja/) | [한국어](./docs/ko/) | [العربية](./docs/ar/) | [Русский](./docs/ru/) | [Deutsch](./docs/de/)
 
